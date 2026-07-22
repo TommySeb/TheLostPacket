@@ -4,7 +4,7 @@ import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.personaggi.utili.RandomGenerator;
 
 /**
- * Classe concreta del personaggio alleato "Switch di rete"
+ * Classe concreta del personaggio nemico "Switch di rete"
  */
 public class Switch extends Personaggio {
     public Switch() {
