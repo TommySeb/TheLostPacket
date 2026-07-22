@@ -7,10 +7,10 @@ import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
  */
 public class Sistemista extends Personaggio {
     public Sistemista() {
+        super();
         this.hpMassimi = 120;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 20;
-        inizializzaNumeroAttacchi();
     }
 
     @Override

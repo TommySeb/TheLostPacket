@@ -10,7 +10,7 @@ public abstract class Personaggio implements Player {
     protected int attacchiEffettuati;   // Indica gli attacchi effettuati dall'ultimo uso dell'abilità speciale del personaggio
 
     public Personaggio(){
-
+        inizializzaNumeroAttacchi();
     }
 
     @Override

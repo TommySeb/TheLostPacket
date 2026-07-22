@@ -4,9 +4,10 @@ import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 
 public class Masterizzatore extends Personaggio {
     public Masterizzatore() {
-        this.hpAttuali = 100;
+        super();
+        this.hpMassimi = 100;
+        this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 25;
-        inizializzaNumeroAttacchi();
     }
 
     @Override
