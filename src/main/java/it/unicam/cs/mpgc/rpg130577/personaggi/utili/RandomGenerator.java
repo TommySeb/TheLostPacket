@@ -1,0 +1,40 @@
+package it.unicam.cs.mpgc.rpg130577.personaggi.utili;
+
+import java.util.Random;
+
+/**
+ * Classe statica che si occupa della generazione di numeri e booleani casuali
+ */
+public class RandomGenerator {
+    private static Random random = new Random();
+
+    private RandomGenerator() {
+
+    }
+
+    /**
+     * Restituisce true con un n% di probabilità
+     * @param percentuale Percentuale che venga restituito true
+     * @return Risultato della probabilità
+     */
+    public static boolean probabilita(int percentuale){
+        if(percentuale < 0 || percentuale > 100)
+            throw new IllegalArgumentException("La percentuale passata deve essere compresa tra 0 e 100");
+
+        int numeroCasuale = generaNumero(100);
+
+        return numeroCasuale < 20;
+    }
+
+    /**
+     * Genera un numero casuale tra 0 e max
+     * @param max Numero massimo che può essere generato
+     * @return un numero casuale tra 0 e max
+     */
+    public static int generaNumero(int max){
+        if(max < 0)
+            throw new IllegalArgumentException("Il numero passato non può essere minore di 0");
+
+        return random.nextInt(max);
+    }
+}
