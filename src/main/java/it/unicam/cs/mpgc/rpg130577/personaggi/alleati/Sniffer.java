@@ -13,20 +13,9 @@ public class Sniffer extends Personaggio {
     }
 
     @Override
-    public void attacca(Personaggio avversario) {
-        avversario.subisciAttacco(this.puntiAttacco);
-        registraAttacco();
-    }
-
-    @Override
     public void usaAbilitaSpeciale(Personaggio avversario) {
         recuperaPuntiVita(20);
         inizializzaNumeroAttacchi();
-    }
-
-    @Override
-    public void subisciAttacco(int hp) {
-        this.hpAttuali -= hp;
     }
 
     /**
@@ -38,15 +27,5 @@ public class Sniffer extends Personaggio {
             this.hpAttuali = this.hpMassimi;
         else
             this.hpAttuali += hp;
-    }
-
-    @Override
-    public void registraAttacco() {
-        this.attacchiEffettuati++;
-    }
-
-    @Override
-    public void inizializzaNumeroAttacchi() {
-        this.attacchiEffettuati = 0;
     }
 }
