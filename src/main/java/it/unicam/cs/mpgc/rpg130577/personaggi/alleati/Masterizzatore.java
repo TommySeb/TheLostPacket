@@ -2,6 +2,9 @@ package it.unicam.cs.mpgc.rpg130577.personaggi.alleati;
 
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 
+/**
+ * Classe concreta del personaggio alleato "Masterizzatore di CD"
+ */
 public class Masterizzatore extends Personaggio {
     public Masterizzatore() {
         super();
