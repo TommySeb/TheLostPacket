@@ -3,6 +3,7 @@ package it.unicam.cs.mpgc.rpg130577.ambienti.controller;
 import it.unicam.cs.mpgc.rpg130577.ambienti.enumerazione.Ambienti;
 import it.unicam.cs.mpgc.rpg130577.ambienti.gui.AmbienteGUI;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
+import it.unicam.cs.mpgc.rpg130577.personaggi.utili.LoaderImmagini;
 import javafx.scene.image.Image;
 
 /**
@@ -15,23 +16,35 @@ public class AmbienteController {
         interfaccia = gui;
     }
 
-    private Image caricaImmagine(String percorso) {
-        return new Image(getClass().getResourceAsStream(percorso));
-    }
-
     /**
      * Carica un'ambientazione specificata
      */
     public void caricaAmbiente(Ambienti ambiente){
-        Image sfondo = caricaImmagine(ambiente.getPercorsoSfondo());
+        Image sfondo = LoaderImmagini.carica(ambiente.getPercorsoSfondo());
         interfaccia.impostaSfondo(sfondo);
     }
 
+    /**
+     * Carica le informazioni del personaggio alleato specificato
+     * @param personaggio Personaggio da caricare
+     */
     public void caricaPersonaggioAlleato(Personaggio personaggio){
-        // TODO Implementare
+        interfaccia.setHpAttualiPersonaggioAlleato(personaggio.getHpAttuali());
+        interfaccia.setHpTotaliPersonaggioAlleato(personaggio.getHpMassimi());
+
+        Image sfondo = LoaderImmagini.carica(personaggio.getPercorsoImmagine());
+        interfaccia.setImmaginePersonaggioAlleato(sfondo);
     }
 
+    /**
+     * Carica le informazioni del personaggio nemico specificato
+     * @param personaggio Personaggio da caricare
+     */
     public void caricaPersonaggioNemico(Personaggio personaggio){
-        // TODO Implementare
+        interfaccia.setHpAttualiPersonaggioNemico(personaggio.getHpAttuali());
+        interfaccia.setHpTotaliPersonaggioNemico(personaggio.getHpMassimi());
+
+        Image sfondo = LoaderImmagini.carica(personaggio.getPercorsoImmagine());
+        interfaccia.setImmaginePersonaggioNemico(sfondo);
     }
 }

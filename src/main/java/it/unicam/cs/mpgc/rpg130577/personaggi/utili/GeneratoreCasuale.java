@@ -5,10 +5,10 @@ import java.util.Random;
 /**
  * Classe statica che si occupa della generazione di numeri e booleani casuali
  */
-public class RandomGenerator {
+public class GeneratoreCasuale {
     private static Random random = new Random();
 
-    private RandomGenerator() {
+    private GeneratoreCasuale() {
 
     }
 

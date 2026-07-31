@@ -21,14 +21,14 @@ public class AmbienteGUI extends Application{
 
     // Componenti panel personaggio alleato
     ImageView immaginePersonaggioAlleato;
-    Label xpAttualiPersonaggioAlleato;
-    Label xpTotaliPersonaggioAlleato;
+    Label hpAttualiPersonaggioAlleato;
+    Label hpTotaliPersonaggioAlleato;
     Label opzioniAttaccoAlleato;
 
     // Componenti personaggio nemico
     ImageView immaginePersonaggioNemico;
-    Label xpAttualiPersonaggioNemico;
-    Label xpTotaliPersonaggioNemico;
+    Label hpAttualiPersonaggioNemico;
+    Label hpTotaliPersonaggioNemico;
     Label opzioniAttaccoNemico;
 
     @Override
@@ -42,24 +42,24 @@ public class AmbienteGUI extends Application{
     public void inizializzaLayout(){
         layout = new BorderPane();
 
-        VBox alleato = creaPannelloPersonaggio(immaginePersonaggioAlleato, xpAttualiPersonaggioAlleato, xpTotaliPersonaggioAlleato, opzioniAttaccoAlleato);
+        VBox alleato = creaPannelloPersonaggio(immaginePersonaggioAlleato, hpAttualiPersonaggioAlleato, hpTotaliPersonaggioAlleato, opzioniAttaccoAlleato);
         layout.setLeft(alleato);
 
-        VBox nemico = creaPannelloPersonaggio(immaginePersonaggioNemico, xpAttualiPersonaggioNemico, xpTotaliPersonaggioNemico, opzioniAttaccoNemico);
+        VBox nemico = creaPannelloPersonaggio(immaginePersonaggioNemico, hpAttualiPersonaggioNemico, hpTotaliPersonaggioNemico, opzioniAttaccoNemico);
         layout.setRight(nemico);
     }
 
     /**
      * Crea un pannello con i controlli grafici di un personaggio
      * @param immagine ImageView dell'immagine del personaggio
-     * @param xpAttuali Label degli xp attuali del personaggio
-     * @param xpTotali Label degli xp totali del personaggio
+     * @param hpAttuali Label degli hp attuali del personaggio
+     * @param hpTotali Label degli hp totali del personaggio
      * @param opzioni Label delle opzioni del personaggio
      * @return Pannello con i controlli grafici passati
      */
-    private VBox creaPannelloPersonaggio(ImageView immagine, Label xpAttuali, Label xpTotali, Label opzioni) {
+    private VBox creaPannelloPersonaggio(ImageView immagine, Label hpAttuali, Label hpTotali, Label opzioni) {
         VBox panel = new VBox();
-        panel.getChildren().addAll(immagine, xpAttuali, xpTotali, opzioni);
+        panel.getChildren().addAll(immagine, hpAttuali, hpTotali, opzioni);
         return panel;
     }
 
@@ -123,19 +123,19 @@ public class AmbienteGUI extends Application{
     }
 
     /**
-     * Imposta il numero di xp attuali del personaggio alleato
-     * @param valore Valore di xp attuali del personaggio alleato
+     * Imposta il numero di hp attuali del personaggio alleato
+     * @param valore Valore di hp attuali del personaggio alleato
      */
-    public void setXpAttualiPersonaggioAlleato(int valore){
-        xpAttualiPersonaggioAlleato.setText( String.valueOf(valore) );
+    public void setHpAttualiPersonaggioAlleato(int valore){
+        hpAttualiPersonaggioAlleato.setText( String.valueOf(valore) );
     }
 
     /**
-     * Imposta il numero di xp totali del personaggio alleato
-     * @param valore Valore di xp totali del personaggio alleato
+     * Imposta il numero di hp totali del personaggio alleato
+     * @param valore Valore di hp totali del personaggio alleato
      */
-    public void setXpTotaliPersonaggioAlleato(int valore){
-        xpTotaliPersonaggioAlleato.setText( String.valueOf(valore) );
+    public void setHpTotaliPersonaggioAlleato(int valore){
+        hpTotaliPersonaggioAlleato.setText( String.valueOf(valore) );
     }
 
     /**
@@ -147,18 +147,18 @@ public class AmbienteGUI extends Application{
     }
 
     /**
-     * Imposta il numero di xp attuali del personaggio nemico
-     * @param valore Valore di xp attuali del personaggio nemico
+     * Imposta il numero di hp attuali del personaggio nemico
+     * @param valore Valore di hp attuali del personaggio nemico
      */
-    public void setXpAttualiPersonaggioNemico(int valore){
-        xpAttualiPersonaggioNemico.setText( String.valueOf(valore) );
+    public void setHpAttualiPersonaggioNemico(int valore){
+        hpAttualiPersonaggioNemico.setText( String.valueOf(valore) );
     }
 
     /**
-     * Imposta il numero di xp totali del personaggio nemico
-     * @param valore Valore di xp totali del personaggio nemico
+     * Imposta il numero di hp totali del personaggio nemico
+     * @param valore Valore di hp totali del personaggio nemico
      */
-    public void setXpTotaliPersonaggioNemico(int valore){
-        xpTotaliPersonaggioNemico.setText( String.valueOf(valore) );
+    public void setHpTotaliPersonaggioNemico(int valore){
+        hpTotaliPersonaggioNemico.setText( String.valueOf(valore) );
     }
 }
