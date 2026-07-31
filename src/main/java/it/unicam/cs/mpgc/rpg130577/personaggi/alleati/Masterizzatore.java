@@ -11,6 +11,7 @@ public class Masterizzatore extends Personaggio {
         this.hpMassimi = 100;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 25;
+        this.pathImmagine = "/personaggi/alleati/masterizzatore.png";
     }
 
     @Override

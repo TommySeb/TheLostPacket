@@ -9,6 +9,7 @@ public class Sniffer extends Personaggio {
     public Sniffer() {
         this.hpAttuali = 100;
         this.puntiAttacco = 25;
+        this.pathImmagine = "/personaggi/alleati/snifferRete.png";
         inizializzaNumeroAttacchi();
     }
 

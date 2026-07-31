@@ -4,6 +4,7 @@ package it.unicam.cs.mpgc.rpg130577.personaggi;
  * Classe base per tutti i personaggi del gioco
  */
 public abstract class Personaggio implements Player {
+    protected String pathImmagine;
     protected int hpMassimi;
     protected int hpAttuali;
     protected int puntiAttacco;
@@ -32,5 +33,29 @@ public abstract class Personaggio implements Player {
     @Override
     public void inizializzaNumeroAttacchi() {
         this.attacchiEffettuati = 0;
+    }
+
+    /**
+     * Restituisce gli health points attuali del personaggio
+     * @return Health points attuali del personaggio
+     */
+    public int getHpAttuali(){
+        return this.hpAttuali;
+    }
+
+    /**
+     * Restituisce gli health points massimi del personaggio
+     * @return Health points massimi del personaggio
+     */
+    public int getHpMassimi(){
+        return this.hpMassimi;
+    }
+
+    /**
+     * Restituisce il percorso dell'immagine del personaggio
+     * @return Percorso dell'immagine del personaggio
+     */
+    public String getPercorsoImmagine(){
+        return this.pathImmagine;
     }
 }
