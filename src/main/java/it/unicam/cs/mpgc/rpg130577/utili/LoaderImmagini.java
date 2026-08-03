@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.rpg130577.personaggi.utili;
+package it.unicam.cs.mpgc.rpg130577.utili;
 
 import com.sun.javafx.iio.ImageLoader;
 import javafx.scene.image.Image;

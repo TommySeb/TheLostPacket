@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.rpg130577.ambienti.enumerazione;
+package it.unicam.cs.mpgc.rpg130577.enumerazione;
 
 /**
  * Classe enumeratore che associa gli ambienti ai relativi percorsi

@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.rpg130577.personaggi.utili;
+package it.unicam.cs.mpgc.rpg130577.utili;
 
 import java.util.Random;
 

@@ -1,9 +1,9 @@
-package it.unicam.cs.mpgc.rpg130577.ambienti.controller;
+package it.unicam.cs.mpgc.rpg130577.controller;
 
-import it.unicam.cs.mpgc.rpg130577.ambienti.enumerazione.Ambienti;
-import it.unicam.cs.mpgc.rpg130577.ambienti.gui.AmbienteGUI;
+import it.unicam.cs.mpgc.rpg130577.enumerazione.Ambienti;
+import it.unicam.cs.mpgc.rpg130577.gui.AmbienteGUI;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
-import it.unicam.cs.mpgc.rpg130577.personaggi.utili.LoaderImmagini;
+import it.unicam.cs.mpgc.rpg130577.utili.LoaderImmagini;
 import javafx.scene.image.Image;
 
 /**

@@ -1,7 +1,7 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi.nemici;
 
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
-import it.unicam.cs.mpgc.rpg130577.personaggi.utili.GeneratoreCasuale;
+import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreCasuale;
 
 /**
  * Classe concreta del personaggio nemico "Switch di rete"
