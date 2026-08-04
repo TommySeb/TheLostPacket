@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 /**
  * Classe contenente l'interfaccia grafica degli ambienti di gioco
  */
-public class AmbienteGUI extends Application{
+public class AmbienteGUI{
     // Finestra generale
     private Stage stage;
     private BorderPane layout;
@@ -31,10 +31,12 @@ public class AmbienteGUI extends Application{
     Label hpTotaliPersonaggioNemico;
     Label opzioniAttaccoNemico;
 
+    /*
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
     }
+    */
 
     /**
      * Crea un layout (BorderPane) e ci inserisce dentro i componenti necessari

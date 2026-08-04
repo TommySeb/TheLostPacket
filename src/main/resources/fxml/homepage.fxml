@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="it.unicam.cs.mpgc.rpg130577.controller.HomepageController"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: black;">
+    <top>
+        <ImageView
+                fitWidth="512"
+                fitHeight="341"
+                preserveRatio="true"
+                BorderPane.alignment="CENTER">
+            <Image url="@/logo/logo.png"/>
+        </ImageView>
+    </top>
+    <bottom>
+        <FlowPane alignment="CENTER" orientation="VERTICAL">
+            <Button style="-fx-background-color: black;">>
+                <graphic>
+                    <ImageView fitWidth="228" fitHeight="60">
+                        <Image url="@/sfondiPulsanti/gioca.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button style="-fx-background-color: black;">
+                <graphic>
+                    <ImageView fitWidth="228" fitHeight="60">
+                        <Image url="@/sfondiPulsanti/credits.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </FlowPane>
+    </bottom>
+</BorderPane>

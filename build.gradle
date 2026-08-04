@@ -22,10 +22,10 @@ test {
 }
 
 application {
-    mainClass = 'it.unicam.cs.mpgc.rpg130577.ambienti.gui.AmbienteGUI'
+    mainClass = 'it.unicam.cs.mpgc.rpg130577.Main'
 }
 
 javafx{
     version= "24.0.1"
-    modules= [ 'javafx.controls' ]
+    modules= [ 'javafx.controls', 'javafx.fxml' ]
 }
