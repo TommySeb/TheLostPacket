@@ -9,4 +9,9 @@ public class HomepageController {
     private void apriCredits() throws IOException {
         GestoreFinestre.apriDaFXML("/fxml/credits.fxml", "Credits", true);
     }
+
+    @FXML
+    private void apriSceltaPersonaggio() throws IOException {
+        GestoreFinestre.apriDaFXML("/fxml/sceltaPersonaggio.fxml", "Scelta personaggio", false);
+    }
 }

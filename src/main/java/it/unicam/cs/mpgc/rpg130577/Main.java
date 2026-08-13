@@ -7,21 +7,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/fxml/homepage.fxml")
-        );
-
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root, 1000, 650);
-        stage.setScene(scene);
-
-        stage.setTitle("The Lost Packet");
-        stage.show();
-
-         */
-
         GestoreFinestre.apriDaFXML("/fxml/homepage.fxml", "The Lost Packet", false);
     }
 

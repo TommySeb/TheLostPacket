@@ -22,7 +22,9 @@
     </top>
     <bottom>
         <FlowPane alignment="CENTER" orientation="VERTICAL">
-            <Button style="-fx-background-color: black;">>
+            <Button
+                    onAction="#apriSceltaPersonaggio"
+                    style="-fx-background-color: black;">>
                 <graphic>
                     <ImageView fitWidth="228" fitHeight="60">
                         <Image url="@/sfondiPulsanti/gioca.png"/>

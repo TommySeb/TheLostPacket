@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefWidth="600.0"
+            prefHeight="400.0"
+            style="-fx-background-color: black;">
+
+    <top>
+        <Label  text="Scegli il tuo personaggio"
+                style=" -fx-font-size: 30px;
+                        -fx-font-weight: bold;
+                        -fx-text-fill: white"/>
+    </top>
+    
+    <center>
+        <HBox>
+            <VBox alignment="TOP_CENTER">
+                <Button style="-fx-background-color: black;">
+                    <graphic>
+                        <ImageView fitWidth="400" fitHeight="400">
+                            <Image url="@/personaggi/alleati/masterizzatore.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Label text="Masterizzatore di CD/DVD"
+                        style=" -fx-font-size: 20px;
+                                -fx-text-fill: white"/>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER">
+                <Button style="-fx-background-color: black;">
+                    <graphic>
+                        <ImageView fitWidth="400" fitHeight="400">
+                            <Image url="@/personaggi/alleati/sistemistaRete.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Label text="Sistemista di rete"
+                        style=" -fx-font-size: 20px;
+                                -fx-text-fill: white"/>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER">
+                <Button style="-fx-background-color: black;">
+                    <graphic>
+                        <ImageView fitWidth="400" fitHeight="400">
+                            <Image url="@/personaggi/alleati/snifferRete.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Label text="Sniffer di rete"
+                       style=" -fx-font-size: 20px;
+                                -fx-text-fill: white"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
