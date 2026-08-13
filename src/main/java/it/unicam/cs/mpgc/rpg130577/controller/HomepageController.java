@@ -12,6 +12,6 @@ public class HomepageController {
 
     @FXML
     private void apriSceltaPersonaggio() throws IOException {
-        GestoreFinestre.apriDaFXML("/fxml/sceltaPersonaggio.fxml", "Scelta personaggio", false);
+        GestoreFinestre.apriDaFXML("/fxml/sceltaPersonaggio.fxml", "Scelta personaggio", true);
     }
 }

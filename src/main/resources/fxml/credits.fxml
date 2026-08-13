@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.VBox?>
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefWidth="600.0"
-            prefHeight="400.0"
-            alignment="CENTER"
-            spacing="10.0"
-            style="-fx-background-image: url('/sfondi/credits.png');
+      prefWidth="600.0"
+      prefHeight="400.0"
+      alignment="CENTER"
+      spacing="10.0"
+      style="-fx-background-image: url('/sfondi/credits.png');
                    -fx-background-size: cover;
                    -fx-background-position: center;">
 
