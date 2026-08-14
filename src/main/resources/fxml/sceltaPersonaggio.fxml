@@ -5,6 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="it.unicam.cs.mpgc.rpg130577.controller.SceltaPersonaggioController"
             prefWidth="600.0"
             prefHeight="400.0"
             style="-fx-background-color: black;">
@@ -23,7 +25,8 @@
     <center>
         <HBox>
             <VBox alignment="TOP_CENTER">
-                <Button style="-fx-background-color: black;">
+                <Button onAction="#scegliMasterizzatore"
+                        style="-fx-background-color: black;">
                     <graphic>
                         <ImageView fitWidth="400" fitHeight="400">
                             <Image url="@/personaggi/alleati/masterizzatore.png"/>
@@ -37,7 +40,8 @@
             </VBox>
 
             <VBox alignment="TOP_CENTER">
-                <Button style="-fx-background-color: black;">
+                <Button onAction="#scegliSistemista"
+                        style="-fx-background-color: black;">
                     <graphic>
                         <ImageView fitWidth="400" fitHeight="400">
                             <Image url="@/personaggi/alleati/sistemistaRete.png"/>
@@ -51,7 +55,8 @@
             </VBox>
 
             <VBox alignment="TOP_CENTER">
-                <Button style="-fx-background-color: black;">
+                <Button onAction="#scegliSniffer"
+                        style="-fx-background-color: black;">
                     <graphic>
                         <ImageView fitWidth="400" fitHeight="400">
                             <Image url="@/personaggi/alleati/snifferRete.png"/>
