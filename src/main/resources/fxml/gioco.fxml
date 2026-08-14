@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="layout"
+            prefWidth="600.0"
+            prefHeight="400.0"
+            style=" -fx-background-size: cover;
+                    -fx-background-position: center;">
+
+    <left>
+        <ImageView fitWidth="500"
+                   fitHeight="500"
+                   fx:id="immagineAlleato">
+
+        </ImageView>
+
+        <HBox>
+            <Label fx:id="hpAttualiAlleato"/>
+            <Label text=" HP / "/>
+            <Label fx:id="hpTotaliAlleato"/>
+            <Label text=" HP"/>
+        </HBox>
+    </left>
+
+    <right>
+        <ImageView fitWidth="500"
+                   fitHeight="500"
+                   fx:id="immagineAvversario">
+        </ImageView>
+
+        <HBox>
+            <Label fx:id="hpAttualiAvversario"/>
+            <Label text=" HP / "/>
+            <Label fx:id="hpTotaliAvversario"/>
+            <Label text=" HP"/>
+        </HBox>
+    </right>
+
+</BorderPane>
