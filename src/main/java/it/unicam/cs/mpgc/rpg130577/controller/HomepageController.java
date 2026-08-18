@@ -4,6 +4,9 @@ import it.unicam.cs.mpgc.rpg130577.utili.GestoreFinestre;
 import javafx.fxml.FXML;
 import java.io.IOException;
 
+/**
+ * Classe controller della gui della homepage
+ */
 public class HomepageController {
     @FXML
     private void apriCredits() throws IOException {

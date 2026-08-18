@@ -11,7 +11,7 @@ public class Nefario extends Personaggio {
         this.hpMassimi = 50;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 15;
-        this.pathImmagine = "/personaggi/nemici/nefario.png";
+        this.pathImmagine = "personaggi/nemici/nefario.png";
     }
 
     @Override

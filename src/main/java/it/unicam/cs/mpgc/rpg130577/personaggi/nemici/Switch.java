@@ -12,7 +12,7 @@ public class Switch extends Personaggio {
         this.hpMassimi = 70;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 20;
-        this.pathImmagine = "/personaggi/nemici/switchRete.png";
+        this.pathImmagine = "personaggi/nemici/switchRete.png";
     }
 
     @Override

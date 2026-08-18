@@ -18,8 +18,9 @@ public class GestoreFinestre {
      * @param titolo Titolo della finestra
      * @param isPopUp Se true, apre la finestra come pop-up
      * @throws IOException Se il percorso non porta a una risorsa fxml valida
+     * @return Controller della form aperta
      */
-    public static void apriDaFXML(String percorso, String titolo, boolean isPopUp) throws IOException {
+    public static <T> T apriDaFXML(String percorso, String titolo, boolean isPopUp) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 GestoreFinestre.class.getResource(percorso)
         );
@@ -36,5 +37,7 @@ public class GestoreFinestre {
         }
         else
             stage.show();
+
+        return loader.getController();
     }
 }

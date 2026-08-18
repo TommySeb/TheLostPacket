@@ -1,6 +1,5 @@
 package it.unicam.cs.mpgc.rpg130577.utili;
 
-import com.sun.javafx.iio.ImageLoader;
 import javafx.scene.image.Image;
 import java.io.InputStream;
 
@@ -16,13 +15,14 @@ public class LoaderImmagini {
      * Carica un'immagine dalle risorse di progetto
      * @param percorso Percorso della risorsa
      * @return Immagine corrispondente
+     * @throws IllegalArgumentException Se l'immagine richiesta non esiste
      */
     public static Image carica(String percorso) {
-        InputStream stream = ImageLoader.class.getResourceAsStream(percorso);
+        InputStream stream = ClassLoader.getSystemResourceAsStream(/*percorso*/ "sfondi/laboratorioSistemi.jpg");
 
-        if (stream == null)
-            throw new IllegalArgumentException("Risorsa non trovata");
-
-        return new Image(stream);
+        if(stream == null)
+            throw new IllegalArgumentException("L'immagine richiesta è inesistente.");
+        else
+            return new Image(stream);
     }
 }

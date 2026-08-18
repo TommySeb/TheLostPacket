@@ -7,6 +7,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:id="layout"
+            fx:controller="it.unicam.cs.mpgc.rpg130577.controller.GiocoController"
             prefWidth="600.0"
             prefHeight="400.0"
             style=" -fx-background-size: cover;

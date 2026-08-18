@@ -11,7 +11,7 @@ public class GroviglioCavi extends Personaggio {
         this.hpMassimi = 100;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 23;
-        this.pathImmagine = "/personaggi/nemici/groviglioCavi.png";
+        this.pathImmagine = "personaggi/nemici/groviglioCavi.png";
     }
 
     @Override

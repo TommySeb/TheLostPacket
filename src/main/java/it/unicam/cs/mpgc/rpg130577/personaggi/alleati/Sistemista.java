@@ -11,7 +11,7 @@ public class Sistemista extends Personaggio {
         this.hpMassimi = 120;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 20;
-        this.pathImmagine = "/personaggi/alleati/sistemistaRete.png";
+        this.pathImmagine = "personaggi/alleati/sistemistaRete.png";
     }
 
     @Override

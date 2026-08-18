@@ -1,5 +1,9 @@
 package it.unicam.cs.mpgc.rpg130577.controller;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.Livello;
+import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
+import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
+import it.unicam.cs.mpgc.rpg130577.utili.LoaderImmagini;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -7,9 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 /**
- * Classe che si occupa 
+ * Classe controller della gui della finestra di gioco
  */
 public class GiocoController{
+    Partita partita;
+
     @FXML
     private BorderPane layout;
 
@@ -20,7 +26,7 @@ public class GiocoController{
     private Label hpAttualiAlleato;
 
     @FXML
-    private Label hpTotaliAlleato;
+    private Label hpMassimiAlleato;
 
     @FXML
     private ImageView immagineAvversario;
@@ -29,7 +35,39 @@ public class GiocoController{
     private Label hpAttualiAvversario;
 
     @FXML
-    private Label hpTotaliAvversario;
+    private Label hpMassimiAvversario;
+
+    /**
+     * Inizializza la partita
+     * @param alleato Personaggio alleato scelto
+     */
+    public void inizializzaPartita(Personaggio alleato){
+        partita = new Partita(alleato);
+        caricaProssimoLivello();
+    }
+
+    /**
+     * Ottiene le informazioni sul prossimo livello e le carica nella GUI
+     */
+    private void caricaProssimoLivello(){
+        Livello prossimoLivello = partita.prossimoLivello();
+
+        try{
+            Image sfondo = LoaderImmagini.carica(prossimoLivello.getAmbiente().getPercorsoSfondo());
+            impostaSfondo(sfondo);
+        }
+        catch(Exception ex){
+            // TODO Implementare
+        }
+
+
+        Personaggio avversario = prossimoLivello.getAvversario();
+        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
+        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
+
+        Image sfondoAvversario = LoaderImmagini.carica(avversario.getPercorsoImmagine());
+        setImmaginePersonaggioAvversario(sfondoAvversario);
+    }
 
     /**
      * Imposta l'immagine di sfondo della finestra
@@ -64,11 +102,11 @@ public class GiocoController{
     }
 
     /**
-     * Imposta il numero di hp totali del personaggio alleato
-     * @param valore Valore di hp totali del personaggio alleato
+     * Imposta il numero di hp massimi del personaggio alleato
+     * @param valore Valore di hp Massimi del personaggio alleato
      */
-    public void setHpTotaliPersonaggioAlleato(int valore){
-        hpTotaliAlleato.setText( String.valueOf(valore) );
+    public void setHpMassimiPersonaggioAlleato(int valore){
+        hpMassimiAlleato.setText( String.valueOf(valore) );
     }
 
     /**
@@ -88,10 +126,10 @@ public class GiocoController{
     }
 
     /**
-     * Imposta il numero di hp totali del personaggio avversario
-     * @param valore Valore di hp totali del personaggio avversario
+     * Imposta il numero di hp massimi del personaggio avversario
+     * @param valore Valore di hp Massimi del personaggio avversario
      */
-    public void setHpTotaliPersonaggioAvversario(int valore){
-        hpTotaliAvversario.setText( String.valueOf(valore) );
+    public void setHpMassimiPersonaggioAvversario(int valore){
+        hpMassimiAvversario.setText( String.valueOf(valore) );
     }
 }
