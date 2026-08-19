@@ -37,4 +37,11 @@ public class Partita {
         livelloAttuale++;
         return livelli.get(livelloAttuale);
     }
+
+    public Livello getLivelloAttuale(){
+        if(livelloAttuale > -1)
+            return livelli.get(livelloAttuale);
+        else
+            return null;    // TODO sistemare
+    }
 }

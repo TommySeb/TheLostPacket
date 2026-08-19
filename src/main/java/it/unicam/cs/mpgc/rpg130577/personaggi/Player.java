@@ -1,5 +1,9 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi;
 
+import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
+
+import java.util.List;
+
 /**
  * Rappresenta un personaggio del videogioco
  */
@@ -31,4 +35,9 @@ public interface Player {
      * Inizializza il contatore del numero di attacchi
      */
     void inizializzaNumeroAttacchi();
+
+    /**
+     * Trova e restituisce la lista di attacchi che il personaggio può compiere
+     */
+    List<Attacchi> ottieniAttacchiDisponibili();
 }

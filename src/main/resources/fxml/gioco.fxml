@@ -28,6 +28,13 @@
                 <Label fx:id="hpMassimiAlleato"/>
                 <Label text=" HP"/>
             </HBox>
+
+            <Separator prefWidth="100.0"/>
+
+            <Label fx:id="mosseAlleato"
+                   wrapText="true">
+
+            </Label>
         </VBox>
 
     </left>
@@ -46,6 +53,13 @@
                 <Label fx:id="hpMassimiAvversario"/>
                 <Label text=" HP"/>
             </HBox>
+
+            <Separator prefWidth="100.0"/>
+
+            <Label fx:id="mosseAvversario"
+                   wrapText="true">
+
+            </Label>
         </VBox>
     </right>
 

@@ -1,7 +1,11 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi.nemici;
 
+import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreCasuale;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Classe concreta del personaggio nemico "Switch di rete"
@@ -13,6 +17,7 @@ public class Switch extends Personaggio {
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 20;
         this.pathImmagine = "personaggi/nemici/switchRete.png";
+        attacchiPerAbilitaSpeciale = -1;
     }
 
     @Override
@@ -26,5 +31,13 @@ public class Switch extends Personaggio {
     @Override
     public void usaAbilitaSpeciale(Personaggio avversario) {
 
+    }
+
+    public List<Attacchi> ottieniAttacchiDisponibili(){
+        List<Attacchi> attacchiDisponibili = new ArrayList<>();
+
+        attacchiDisponibili.add(Attacchi.ATTACCO_BASE);
+
+        return attacchiDisponibili;
     }
 }

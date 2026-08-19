@@ -1,5 +1,8 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi;
 
+import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
+import java.util.List;
+
 /**
  * Classe base per tutti i personaggi del gioco
  */
@@ -8,7 +11,8 @@ public abstract class Personaggio implements Player {
     protected int hpMassimi;
     protected int hpAttuali;
     protected int puntiAttacco;
-    protected int attacchiEffettuati;   // Indica gli attacchi effettuati dall'ultimo uso dell'abilità speciale del personaggio
+    protected int attacchiEffettuati;           // Indica gli attacchi effettuati dall'ultimo uso dell'abilità speciale del personaggio
+    protected int attacchiPerAbilitaSpeciale;   // Indica il numero minimo di attacchi effettuati per sbloccare l'abilità speciale - assume valore -1 se non presente
 
     public Personaggio(){
         inizializzaNumeroAttacchi();

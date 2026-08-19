@@ -2,6 +2,7 @@ package it.unicam.cs.mpgc.rpg130577.controller;
 
 import it.unicam.cs.mpgc.rpg130577.componenti.Livello;
 import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
+import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.LoaderImmagini;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+
+import java.util.List;
 
 /**
  * Classe controller della gui della finestra di gioco
@@ -29,6 +32,9 @@ public class GiocoController{
     private Label hpMassimiAlleato;
 
     @FXML
+    private Label mosseAlleato;
+
+    @FXML
     private ImageView immagineAvversario;
 
     @FXML
@@ -36,6 +42,9 @@ public class GiocoController{
 
     @FXML
     private Label hpMassimiAvversario;
+
+    @FXML
+    private Label mosseAvversario;
 
     /**
      * Inizializza la partita
@@ -69,6 +78,39 @@ public class GiocoController{
 
         Image sfondoAvversario = LoaderImmagini.carica(avversario.getPercorsoImmagine());
         setImmaginePersonaggioAvversario(sfondoAvversario);
+    }
+
+    /**
+     * Carica gli attacchi che possono essere compiuti dal personaggio alleato
+     */
+    public void caricaAttacchiPersonaggioAlleato(){
+        List<Attacchi> attacchiDisponibili = partita.getAlleato().ottieniAttacchiDisponibili();
+        String testo = formattaAttacchi(attacchiDisponibili);
+        mosseAlleato.setText(testo);
+    }
+
+    /**
+     * Carica gli attacchi che possono essere compiuti dal personaggio avversario
+     */
+    public void caricaAttacchiPersonaggioAvversario(){
+        List<Attacchi> attacchiDisponibili = partita.getLivelloAttuale().getAvversario().ottieniAttacchiDisponibili();
+        String testo = formattaAttacchi(attacchiDisponibili);
+        mosseAvversario.setText(testo);
+    }
+
+    /**
+     * Converte una lista di attacchi in una stringa da poter stampare nella GUI
+     * @return
+     */
+    private String formattaAttacchi(List<Attacchi> attacchi){
+        StringBuilder testo = new StringBuilder();
+
+        for(int i = 0; i < attacchi.size(); i++){
+            String preambolo = i + " - ";
+            testo.append(preambolo).append(attacchi.get(i).getDescrizione());
+        }
+
+        return testo.toString();
     }
 
     /**
