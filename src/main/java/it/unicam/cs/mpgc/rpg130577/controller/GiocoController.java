@@ -43,7 +43,32 @@ public class GiocoController{
      */
     public void inizializzaPartita(Personaggio alleato){
         partita = new Partita(alleato);
+        caricaPersonaggioAlleato(alleato);
         caricaProssimoLivello();
+    }
+
+    /**
+     * Carica le informaazioni sul personaggio alleato nella GUI
+     * @param alleato Alleato da caricare
+     */
+    private void caricaPersonaggioAlleato(Personaggio alleato){
+        setHpAttualiPersonaggioAlleato(alleato.getHpAttuali());
+        setHpMassimiPersonaggioAlleato(alleato.getHpMassimi());
+
+        Image sfondoAlleato = LoaderImmagini.carica(alleato.getPercorsoImmagine());
+        setImmaginePersonaggioAlleato(sfondoAlleato);
+    }
+
+    /**
+     * Carica le informazioni sul personaggio avversario nella GUI
+     * @param avversario Avversario da caricare
+     */
+    public void caricaPersonaggioAvversario(Personaggio avversario){
+        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
+        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
+
+        Image sfondoAvversario = LoaderImmagini.carica(avversario.getPercorsoImmagine());
+        setImmaginePersonaggioAvversario(sfondoAvversario);
     }
 
     /**
@@ -52,21 +77,11 @@ public class GiocoController{
     private void caricaProssimoLivello(){
         Livello prossimoLivello = partita.prossimoLivello();
 
-        try{
-            Image sfondo = LoaderImmagini.carica(prossimoLivello.getAmbiente().getPercorsoSfondo());
-            impostaSfondo(sfondo);
-        }
-        catch(Exception ex){
-            // TODO Implementare
-        }
-
+        Image sfondo = LoaderImmagini.carica(prossimoLivello.getAmbiente().getPercorsoSfondo());
+        impostaSfondo(sfondo);
 
         Personaggio avversario = prossimoLivello.getAvversario();
-        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
-        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
-
-        Image sfondoAvversario = LoaderImmagini.carica(avversario.getPercorsoImmagine());
-        setImmaginePersonaggioAvversario(sfondoAvversario);
+        caricaPersonaggioAvversario(avversario);
     }
 
     /**

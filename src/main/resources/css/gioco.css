@@ -1,0 +1,13 @@
+BorderPane {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+VBox {
+    -fx-background-color: #00008B;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}

@@ -4,42 +4,49 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:id="layout"
             fx:controller="it.unicam.cs.mpgc.rpg130577.controller.GiocoController"
-            prefWidth="600.0"
-            prefHeight="400.0"
-            style=" -fx-background-size: cover;
-                    -fx-background-position: center;">
+            prefWidth="1000.0"
+            prefHeight="550.0"
+            stylesheets="@../css/gioco.css">
 
     <left>
-        <ImageView fitWidth="500"
-                   fitHeight="500"
-                   fx:id="immagineAlleato">
+        <VBox prefWidth="150.0"
+              alignment="BOTTOM_CENTER">
+            <ImageView fitWidth="150"
+                       fitHeight="150"
+                       fx:id="immagineAlleato">
 
-        </ImageView>
+            </ImageView>
 
-        <HBox>
-            <Label fx:id="hpAttualiAlleato"/>
-            <Label text=" HP / "/>
-            <Label fx:id="hpTotaliAlleato"/>
-            <Label text=" HP"/>
-        </HBox>
+            <HBox>
+                <Label fx:id="hpAttualiAlleato"/>
+                <Label text=" HP / "/>
+                <Label fx:id="hpMassimiAlleato"/>
+                <Label text=" HP"/>
+            </HBox>
+        </VBox>
+
     </left>
 
     <right>
-        <ImageView fitWidth="500"
-                   fitHeight="500"
-                   fx:id="immagineAvversario">
-        </ImageView>
+        <VBox prefWidth="150.0"
+              alignment="BOTTOM_CENTER">
+            <ImageView fitWidth="150"
+                       fitHeight="150"
+                       fx:id="immagineAvversario">
+            </ImageView>
 
-        <HBox>
-            <Label fx:id="hpAttualiAvversario"/>
-            <Label text=" HP / "/>
-            <Label fx:id="hpTotaliAvversario"/>
-            <Label text=" HP"/>
-        </HBox>
+            <HBox>
+                <Label fx:id="hpAttualiAvversario"/>
+                <Label text=" HP / "/>
+                <Label fx:id="hpMassimiAvversario"/>
+                <Label text=" HP"/>
+            </HBox>
+        </VBox>
     </right>
 
 </BorderPane>

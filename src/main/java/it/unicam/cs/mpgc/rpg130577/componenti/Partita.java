@@ -25,6 +25,10 @@ public class Partita {
         livelloAttuale = -1;
     }
 
+    public Personaggio getAlleato() {
+        return alleato;
+    }
+
     public void addLivello(Livello livello){
         livelli.add(livello);
     }

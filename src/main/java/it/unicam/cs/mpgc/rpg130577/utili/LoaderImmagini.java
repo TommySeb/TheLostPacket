@@ -18,7 +18,7 @@ public class LoaderImmagini {
      * @throws IllegalArgumentException Se l'immagine richiesta non esiste
      */
     public static Image carica(String percorso) {
-        InputStream stream = ClassLoader.getSystemResourceAsStream(/*percorso*/ "sfondi/laboratorioSistemi.jpg");
+        InputStream stream = ClassLoader.getSystemResourceAsStream(percorso);
 
         if(stream == null)
             throw new IllegalArgumentException("L'immagine richiesta è inesistente.");

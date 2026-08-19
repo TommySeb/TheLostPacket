@@ -12,6 +12,8 @@ import java.io.IOException;
  * Classe per l'apertura di nuove finestre
  */
 public class GestoreFinestre {
+    private static Stage stageAttuale;
+
     /**
      * Apre una nuova finestra
      * @param percorso Percorso del file fxml
@@ -21,22 +23,26 @@ public class GestoreFinestre {
      * @return Controller della form aperta
      */
     public static <T> T apriDaFXML(String percorso, String titolo, boolean isPopUp) throws IOException {
+        if (stageAttuale != null && !isPopUp) {
+            stageAttuale.close();
+        }
+
         FXMLLoader loader = new FXMLLoader(
                 GestoreFinestre.class.getResource(percorso)
         );
 
         Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setTitle(titolo);
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
+        stageAttuale = new Stage();
+        stageAttuale.setTitle(titolo);
+        stageAttuale.setScene(new Scene(root));
+        stageAttuale.setResizable(false);
 
         if(isPopUp){
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
+            stageAttuale.initModality(Modality.APPLICATION_MODAL);
+            stageAttuale.showAndWait();
         }
         else
-            stage.show();
+            stageAttuale.show();
 
         return loader.getController();
     }
