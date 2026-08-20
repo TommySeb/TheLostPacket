@@ -13,6 +13,7 @@ public class Partita {
     Personaggio alleato;
     List<Livello> livelli;
     int livelloAttuale;
+    boolean turnoAlleato;
 
     public Partita(Personaggio alleato){
         this.alleato = alleato;
@@ -43,5 +44,33 @@ public class Partita {
             return livelli.get(livelloAttuale);
         else
             return null;    // TODO sistemare
+    }
+
+    public boolean isTurnoAlleato(){
+        return turnoAlleato;
+    }
+
+    public void cambiaTurno(){
+        turnoAlleato = !turnoAlleato;
+    }
+
+    /**
+     * Ritorna il personaggio di cui è il turno ora
+     */
+    public Personaggio getPersonaggioDiTurno(){
+        if(isTurnoAlleato())
+            return getAlleato();
+        else
+            return getLivelloAttuale().getAvversario();
+    }
+
+    /**
+     * Ritorna il personaggio di cui non è il turno ora
+     */
+    public Personaggio getPersonaggioNonDiTurno(){
+        if(isTurnoAlleato())
+            return getLivelloAttuale().getAvversario();
+        else
+            return getAlleato();
     }
 }

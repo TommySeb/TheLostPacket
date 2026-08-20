@@ -4,11 +4,13 @@ import it.unicam.cs.mpgc.rpg130577.componenti.Livello;
 import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
+import it.unicam.cs.mpgc.rpg130577.utili.GestoreCombattimento;
 import it.unicam.cs.mpgc.rpg130577.utili.LoaderImmagini;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.List;
  */
 public class GiocoController{
     Partita partita;
+    GestoreCombattimento combattimento;
 
     @FXML
     private BorderPane layout;
@@ -46,14 +49,38 @@ public class GiocoController{
     @FXML
     private Label mosseAvversario;
 
+    @FXML
+    public void initialize() {
+        layout.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                newScene.setOnKeyPressed(event -> {
+                    KeyCode key = event.getCode();
+
+                    if (key.isDigitKey()) {
+                        int numero = key.getName().charAt(0) - '0';
+                        combattimento.eseguiAttacco(numero);
+
+
+                        aggiornaHpAlleato( getAlleato() );
+                        aggiornaHpAvversario( getAvversario() );
+                    }
+                });
+            }
+        });
+    }
+
     /**
      * Inizializza la partita
      * @param alleato Personaggio alleato scelto
      */
     public void inizializzaPartita(Personaggio alleato){
         partita = new Partita(alleato);
+        combattimento = new GestoreCombattimento(partita);
+
         caricaPersonaggioAlleato(alleato);
         caricaProssimoLivello();
+
+        caricaAttacchiPersonaggioAlleato();
     }
 
     /**
@@ -61,11 +88,15 @@ public class GiocoController{
      * @param alleato Alleato da caricare
      */
     private void caricaPersonaggioAlleato(Personaggio alleato){
-        setHpAttualiPersonaggioAlleato(alleato.getHpAttuali());
-        setHpMassimiPersonaggioAlleato(alleato.getHpMassimi());
+        aggiornaHpAlleato(alleato);
 
         Image sfondoAlleato = LoaderImmagini.carica(alleato.getPercorsoImmagine());
         setImmaginePersonaggioAlleato(sfondoAlleato);
+    }
+
+    private void aggiornaHpAlleato(Personaggio alleato){
+        setHpAttualiPersonaggioAlleato(alleato.getHpAttuali());
+        setHpMassimiPersonaggioAlleato(alleato.getHpMassimi());
     }
 
     /**
@@ -73,11 +104,15 @@ public class GiocoController{
      * @param avversario Avversario da caricare
      */
     public void caricaPersonaggioAvversario(Personaggio avversario){
-        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
-        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
+        aggiornaHpAvversario(avversario);
 
         Image sfondoAvversario = LoaderImmagini.carica(avversario.getPercorsoImmagine());
         setImmaginePersonaggioAvversario(sfondoAvversario);
+    }
+
+    private void aggiornaHpAvversario(Personaggio avversario){
+        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
+        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
     }
 
     /**
@@ -124,6 +159,14 @@ public class GiocoController{
 
         Personaggio avversario = prossimoLivello.getAvversario();
         caricaPersonaggioAvversario(avversario);
+    }
+
+    private Personaggio getAlleato(){
+        return partita.getAlleato();
+    }
+
+    private Personaggio getAvversario(){
+        return partita.getLivelloAttuale().getAvversario();
     }
 
     /**
