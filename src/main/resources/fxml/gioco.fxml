@@ -31,7 +31,7 @@
 
             <Separator prefWidth="100.0"/>
 
-            <Label fx:id="mosseAlleato"
+            <Label fx:id="attacchiDisponibiliAlleato"
                    wrapText="true">
 
             </Label>
@@ -56,7 +56,7 @@
 
             <Separator prefWidth="100.0"/>
 
-            <Label fx:id="mosseAvversario"
+            <Label fx:id="attacchiDisponibiliAvversario"
                    wrapText="true">
 
             </Label>

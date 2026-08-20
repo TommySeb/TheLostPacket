@@ -24,6 +24,8 @@ public class Partita {
         addLivello(GeneratoreLivelli.generaLivello3());
         addLivello(GeneratoreLivelli.generaLivello4());
         livelloAttuale = -1;
+
+        turnoAlleato = true;
     }
 
     public Personaggio getAlleato() {

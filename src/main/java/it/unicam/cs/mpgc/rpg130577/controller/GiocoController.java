@@ -35,7 +35,7 @@ public class GiocoController{
     private Label hpMassimiAlleato;
 
     @FXML
-    private Label mosseAlleato;
+    private Label attacchiDisponibiliAlleato;
 
     @FXML
     private ImageView immagineAvversario;
@@ -47,7 +47,7 @@ public class GiocoController{
     private Label hpMassimiAvversario;
 
     @FXML
-    private Label mosseAvversario;
+    private Label attacchiDisponibiliAvversario;
 
     @FXML
     public void initialize() {
@@ -63,6 +63,7 @@ public class GiocoController{
 
                         aggiornaHpAlleato( getAlleato() );
                         aggiornaHpAvversario( getAvversario() );
+                        caricaAttacchi();
                     }
                 });
             }
@@ -79,8 +80,7 @@ public class GiocoController{
 
         caricaPersonaggioAlleato(alleato);
         caricaProssimoLivello();
-
-        caricaAttacchiPersonaggioAlleato();
+        caricaAttacchi();
     }
 
     /**
@@ -116,21 +116,35 @@ public class GiocoController{
     }
 
     /**
-     * Carica gli attacchi che possono essere compiuti dal personaggio alleato
+     * Carica nella GUI gli attacchi del personaggio di turno
      */
-    public void caricaAttacchiPersonaggioAlleato(){
-        List<Attacchi> attacchiDisponibili = partita.getAlleato().ottieniAttacchiDisponibili();
-        String testo = formattaAttacchi(attacchiDisponibili);
-        mosseAlleato.setText(testo);
+    private void caricaAttacchi(){
+        if(partita.isTurnoAlleato()){
+            resetAttacchiPersonaggioAvversario();
+            caricaAttacchiPersonaggioAlleato();
+        }
+        else{
+            resetAttacchiPersonaggioAlleato();
+            caricaAttacchiPersonaggioAvversario();
+        }
     }
 
     /**
-     * Carica gli attacchi che possono essere compiuti dal personaggio avversario
+     * Carica nella GUI gli attacchi che possono essere compiuti dal personaggio alleato
      */
-    public void caricaAttacchiPersonaggioAvversario(){
+    private void caricaAttacchiPersonaggioAlleato(){
+        List<Attacchi> attacchiDisponibili = partita.getAlleato().ottieniAttacchiDisponibili();
+        String testo = formattaAttacchi(attacchiDisponibili);
+        setAttacchiDisponibiliAlleato(testo);
+    }
+
+    /**
+     * Carica nella GUI gli attacchi che possono essere compiuti dal personaggio avversario
+     */
+    private void caricaAttacchiPersonaggioAvversario(){
         List<Attacchi> attacchiDisponibili = partita.getLivelloAttuale().getAvversario().ottieniAttacchiDisponibili();
         String testo = formattaAttacchi(attacchiDisponibili);
-        mosseAvversario.setText(testo);
+        setAttacchiDisponibiliAvversario(testo);
     }
 
     /**
@@ -149,7 +163,7 @@ public class GiocoController{
     }
 
     /**
-     * Ottiene le informazioni sul prossimo livello e le carica nella GUI
+     * Carica nella GUI le informazioni sul prossimo livello
      */
     private void caricaProssimoLivello(){
         Livello prossimoLivello = partita.prossimoLivello();
@@ -210,6 +224,21 @@ public class GiocoController{
     }
 
     /**
+     * Imposta il testo delle opzioni di attacco disponibili per l'alleato
+     * @param valore Opzioni di attacco per l'alleato
+     */
+    public void setAttacchiDisponibiliAlleato(String valore){
+        attacchiDisponibiliAlleato.setText(valore);
+    }
+
+    /**
+     * Elimina dalla GUI le opzioni di attacco disponibili per l'alleato
+     */
+    private void resetAttacchiPersonaggioAlleato(){
+        attacchiDisponibiliAlleato.setText("");
+    }
+
+    /**
      * Imposta l'immagine del personaggio avversario
      * @param immagine Immagine del personaggio avversario
      */
@@ -231,5 +260,20 @@ public class GiocoController{
      */
     public void setHpMassimiPersonaggioAvversario(int valore){
         hpMassimiAvversario.setText( String.valueOf(valore) );
+    }
+
+    /**
+     * Imposta il testo delle opzioni di attacco disponibili per l'avversario
+     * @param valore Opzioni di attacco per l'avversario
+     */
+    public void setAttacchiDisponibiliAvversario(String valore){
+        attacchiDisponibiliAvversario.setText(valore);
+    }
+
+    /**
+     * Elimina dalla GUI le opzioni di attacco disponibili per l'avversario
+     */
+    private void resetAttacchiPersonaggioAvversario(){
+        attacchiDisponibiliAvversario.setText("");
     }
 }
