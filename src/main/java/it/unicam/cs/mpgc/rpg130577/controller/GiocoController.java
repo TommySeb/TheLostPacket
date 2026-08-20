@@ -6,6 +6,7 @@ import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.GestoreCombattimento;
 import it.unicam.cs.mpgc.rpg130577.utili.LoaderImmagini;
+import it.unicam.cs.mpgc.rpg130577.utili.RiproduttoreMusicale;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -159,7 +160,9 @@ public class GiocoController{
 
         for(int i = 0; i < attacchi.size(); i++){
             String preambolo = i + " - ";
-            testo.append(preambolo).append(attacchi.get(i).getDescrizione());
+            testo.append(preambolo);
+            testo.append(attacchi.get(i).getDescrizione());
+            testo.append("\n");
         }
 
         return testo.toString();
@@ -173,6 +176,10 @@ public class GiocoController{
 
         Image sfondo = LoaderImmagini.carica(prossimoLivello.getAmbiente().getPercorsoSfondo());
         impostaSfondo(sfondo);
+
+        String sottofondo = partita.getLivelloAttuale().getAmbiente().getPercorsoSottofondo();
+        RiproduttoreMusicale.stop();
+        RiproduttoreMusicale.riproduci(sottofondo);
 
         Personaggio avversario = prossimoLivello.getAvversario();
         caricaPersonaggioAvversario(avversario);

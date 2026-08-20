@@ -18,6 +18,9 @@ public class LoaderImmagini {
      * @throws IllegalArgumentException Se l'immagine richiesta non esiste
      */
     public static Image carica(String percorso) {
+        // Conversione del percorso in uno compatibile con lo stream
+        percorso = percorso.replaceFirst("^/", "");
+
         InputStream stream = ClassLoader.getSystemResourceAsStream(percorso);
 
         if(stream == null)
