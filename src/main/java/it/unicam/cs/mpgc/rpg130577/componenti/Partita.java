@@ -75,4 +75,19 @@ public class Partita {
         else
             return getAlleato();
     }
+
+    /**
+     * Controlla se il combattimento è terminato
+     * @return true se terminato, altrimenti false
+     */
+    public boolean combattimentoTerminato(){
+        if(alleato.isMorto()){
+            // Salta alla fine del gioco con "game over"
+            return true;
+        }
+        else if(getLivelloAttuale().getAvversario().isMorto())
+            return true;
+        else
+            return false;
+    }
 }

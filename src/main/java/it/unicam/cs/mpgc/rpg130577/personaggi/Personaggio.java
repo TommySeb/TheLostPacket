@@ -62,4 +62,8 @@ public abstract class Personaggio implements Player {
     public String getPercorsoImmagine(){
         return this.pathImmagine;
     }
+
+    public boolean isMorto(){
+        return hpAttuali <= 0;
+    }
 }

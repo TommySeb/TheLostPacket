@@ -60,10 +60,13 @@ public class GiocoController{
                         int numero = key.getName().charAt(0) - '0';
                         combattimento.eseguiAttacco(numero);
 
-
                         aggiornaHpAlleato( getAlleato() );
                         aggiornaHpAvversario( getAvversario() );
-                        caricaAttacchi();
+
+                        if(partita.combattimentoTerminato())
+                            caricaProssimoLivello();
+                        else
+                            caricaAttacchi();
                     }
                 });
             }

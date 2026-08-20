@@ -40,4 +40,10 @@ public interface Player {
      * Trova e restituisce la lista di attacchi che il personaggio può compiere
      */
     List<Attacchi> ottieniAttacchiDisponibili();
+
+    /**
+     * Indica se il personaggio è morto o meno
+     * @return true se è morto, altrimenti false
+     */
+    boolean isMorto();
 }
