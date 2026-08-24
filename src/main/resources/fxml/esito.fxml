@@ -17,7 +17,7 @@
 
       stylesheets="@../css/esito.css">
 
-    <Label fx:id="labelEsito"/>
+    <Label fx:id="labelEsito" textAlignment="CENTER"/>
 
     <Label fx:id="ringraziamenti" text="Grazie per aver giocato a The Lost Packet!"/>
 

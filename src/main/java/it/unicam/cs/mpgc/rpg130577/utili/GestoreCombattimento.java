@@ -23,7 +23,7 @@ public class GestoreCombattimento {
         Personaggio avversario = partita.getPersonaggioNonDiTurno();
 
         if(numero >= 0 && numero < attacchiDisponibiliAttaccante.size()){
-            Attacchi attaccoScelto = attaccante.ottieniAttacchiDisponibili().get(numero);
+            Attacchi attaccoScelto = attacchiDisponibiliAttaccante.get(numero);
 
             switch(attaccoScelto){
                 case Attacchi.ATTACCO_BASE:

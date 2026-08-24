@@ -75,8 +75,7 @@ public class GiocoController{
                             }
                         else if(partita.livelloTerminato())
                             caricaLivello();
-                        else
-                            caricaAttacchi();
+                        caricaAttacchi();
                     }
                 });
             }
