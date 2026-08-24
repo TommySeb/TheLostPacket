@@ -1,0 +1,23 @@
+VBox{
+    -fx-background-image: url('/sfondi/credits.png');
+}
+
+.label{
+    -fx-text-fill: white;
+}
+
+#labelEsito{
+    -fx-font-size: 40px;
+}
+
+.vincita{
+    -fx-text-fill: #007f00;
+}
+
+.perdita{
+    -fx-text-fill: #a60000;
+}
+
+#ringraziamenti{
+    -fx-font-size: 20px;
+}

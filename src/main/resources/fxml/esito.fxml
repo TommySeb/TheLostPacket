@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="it.unicam.cs.mpgc.rpg130577.controller.EsitoController"
+
+      prefWidth="600.0"
+      prefHeight="400.0"
+      alignment="CENTER"
+      spacing="10.0"
+
+      stylesheets="@../css/esito.css">
+
+    <Label fx:id="labelEsito"/>
+
+    <Label fx:id="ringraziamenti" text="Grazie per aver giocato a The Lost Packet!"/>
+
+    <Button onAction="#giocaDiNuovo">
+        <graphic>
+            <ImageView fitWidth="228" fitHeight="60">
+                <Image url="@/sfondiPulsanti/giocaDiNuovo.png"/>
+            </ImageView>
+        </graphic>
+    </Button>
+</VBox>

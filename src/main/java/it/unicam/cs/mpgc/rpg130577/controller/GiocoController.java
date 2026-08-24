@@ -5,6 +5,7 @@ import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.GestoreCombattimento;
+import it.unicam.cs.mpgc.rpg130577.utili.GestoreFinestre;
 import it.unicam.cs.mpgc.rpg130577.utili.LoaderImmagini;
 import it.unicam.cs.mpgc.rpg130577.utili.RiproduttoreMusicale;
 import javafx.fxml.FXML;
@@ -65,7 +66,15 @@ public class GiocoController{
                         aggiornaHpAvversario( getAvversario() );
 
                         if(partita.combattimentoTerminato())
-                            caricaProssimoLivello();
+                            try{
+                                EsitoController controller = GestoreFinestre.apriDaFXML("/fxml/esito.fxml", "Esito", false);
+                                controller.setLabelEsito( partita.getEsito() );
+                            }
+                            catch(Exception ex){
+                                // TODO gestire
+                            }
+                        else if(partita.livelloTerminato())
+                            caricaLivello();
                         else
                             caricaAttacchi();
                     }
@@ -83,7 +92,7 @@ public class GiocoController{
         combattimento = new GestoreCombattimento(partita);
 
         caricaPersonaggioAlleato(alleato);
-        caricaProssimoLivello();
+        caricaLivello();
         caricaAttacchi();
     }
 
@@ -169,19 +178,19 @@ public class GiocoController{
     }
 
     /**
-     * Carica nella GUI le informazioni sul prossimo livello
+     * Carica nella GUI le informazioni sul livello attuale
      */
-    private void caricaProssimoLivello(){
-        Livello prossimoLivello = partita.prossimoLivello();
+    private void caricaLivello(){
+        Livello livelloAttuale = partita.getLivelloAttuale();
 
-        Image sfondo = LoaderImmagini.carica(prossimoLivello.getAmbiente().getPercorsoSfondo());
+        Image sfondo = LoaderImmagini.carica(livelloAttuale.getAmbiente().getPercorsoSfondo());
         impostaSfondo(sfondo);
 
-        String sottofondo = partita.getLivelloAttuale().getAmbiente().getPercorsoSottofondo();
+        String sottofondo = livelloAttuale.getAmbiente().getPercorsoSottofondo();
         RiproduttoreMusicale.stop();
         RiproduttoreMusicale.riproduci(sottofondo);
 
-        Personaggio avversario = prossimoLivello.getAvversario();
+        Personaggio avversario = livelloAttuale.getAvversario();
         caricaPersonaggioAvversario(avversario);
     }
 

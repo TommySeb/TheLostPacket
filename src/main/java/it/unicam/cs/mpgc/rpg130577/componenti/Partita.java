@@ -14,7 +14,12 @@ public class Partita {
     List<Livello> livelli;
     int livelloAttuale;
     boolean turnoAlleato;
+    boolean vincita;
 
+    /**
+     * Costruttore
+     * @param alleato Personaggio alleato che gioca la partita
+     */
     public Partita(Personaggio alleato){
         this.alleato = alleato;
 
@@ -23,37 +28,70 @@ public class Partita {
         addLivello(GeneratoreLivelli.generaLivello2());
         addLivello(GeneratoreLivelli.generaLivello3());
         addLivello(GeneratoreLivelli.generaLivello4());
-        livelloAttuale = -1;
+        livelloAttuale = 0;
 
         turnoAlleato = true;
     }
 
-    public Personaggio getAlleato() {
-        return alleato;
+    /**
+     * Indica se la partita è iniziata o meno
+     * @return true se è iniziata, altrimenti false
+     */
+    public boolean isIniziata(){
+        return livelloAttuale >= 0;
     }
 
-    public void addLivello(Livello livello){
-        livelli.add(livello);
-    }
-
-    public Livello prossimoLivello(){
-        livelloAttuale++;
-        return livelli.get(livelloAttuale);
-    }
-
-    public Livello getLivelloAttuale(){
-        if(livelloAttuale > -1)
-            return livelli.get(livelloAttuale);
+    /**
+     * Controlla se il livello è terminato e, in caso affermativo, passa al successivo
+     * @return true se il livello è terminato, altrimenti false
+     */
+    public boolean livelloTerminato(){
+        if(getLivelloAttuale().getAvversario().isMorto()){
+            prossimoLivello();
+            return true;
+        }
         else
-            return null;    // TODO sistemare
+            return false;
     }
 
+    /**
+     * Controlla se il combattimento è terminato
+     * @return true se terminato, altrimenti false
+     */
+    public boolean combattimentoTerminato(){
+        if(alleato.isMorto()){
+            vincita = false;
+            return true;
+        }
+        else if(getLivelloAttuale().getAvversario().isMorto() && livelliFiniti()){
+            vincita = true;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    /**
+     * Indica se è il turno del personaggio alleato o meno
+     * @return True se è il turno del personaggio alleato, altrimenti false
+     */
     public boolean isTurnoAlleato(){
         return turnoAlleato;
     }
 
+    /**
+     * Passa il turno al personaggio opposto
+     */
     public void cambiaTurno(){
         turnoAlleato = !turnoAlleato;
+    }
+
+    /**
+     * Restituisce il personaggio alleato che gioca la partita
+     * @return Personaggio alleato che gioca la partita
+     */
+    public Personaggio getAlleato() {
+        return alleato;
     }
 
     /**
@@ -77,17 +115,50 @@ public class Partita {
     }
 
     /**
-     * Controlla se il combattimento è terminato
-     * @return true se terminato, altrimenti false
+     * Indica se la partita è stata vinta o meno
+     * @return true se l'alleato ha vinto, altrimenti false
      */
-    public boolean combattimentoTerminato(){
-        if(alleato.isMorto()){
-            // Salta alla fine del gioco con "game over"
-            return true;
-        }
-        else if(getLivelloAttuale().getAvversario().isMorto())
-            return true;
+    public boolean getEsito(){
+        return vincita;
+    }
+
+    /**
+     * Aggiunge un livello alla partita
+     * @param livello Livello da aggiungere
+     */
+    public void addLivello(Livello livello){
+        livelli.add(livello);
+    }
+
+    /**
+     * Restituisce il livello attuale del gioco
+     * @return Livello attuale del gioco o, se la partita non è iniziata, null
+     */
+    public Livello getLivelloAttuale(){
+        if(isIniziata())
+            return livelli.get(livelloAttuale);
         else
-            return false;
+            return null;
+    }
+
+    /**
+     * Restituisce il prossimo livello del gioco
+     * @return Prossimo livello del gioco o, se finiti, null
+     */
+    public Livello prossimoLivello(){
+        if(!livelliFiniti()){
+            livelloAttuale++;
+            return livelli.get(livelloAttuale);
+        }
+        else
+            return null;
+    }
+
+    /**
+     * Indica se i livelli sono finiti o meno
+     * @return true se i livelli sono finiti, altrimenti false
+     */
+    public boolean livelliFiniti(){
+        return livelloAttuale >= livelli.size() - 1;
     }
 }

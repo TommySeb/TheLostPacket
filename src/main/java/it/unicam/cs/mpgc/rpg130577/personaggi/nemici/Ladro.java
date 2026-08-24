@@ -15,7 +15,7 @@ public class Ladro extends Personaggio {
         this.hpMassimi = 180;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 30;
-        this.pathImmagine = "personaggi/alleati/ladro.png";
+        this.pathImmagine = "personaggi/nemici/ladro.png";
         attacchiPerAbilitaSpeciale = 4;
         inizializzaNumeroAttacchi();
     }

@@ -23,8 +23,11 @@ public class LoaderImmagini {
 
         InputStream stream = ClassLoader.getSystemResourceAsStream(percorso);
 
-        if(stream == null)
+        if(stream == null){
+            System.out.println(percorso);
             throw new IllegalArgumentException("L'immagine richiesta è inesistente.");
+        }
+
         else
             return new Image(stream);
     }

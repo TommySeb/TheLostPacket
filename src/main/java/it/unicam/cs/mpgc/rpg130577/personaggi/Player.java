@@ -46,4 +46,6 @@ public interface Player {
      * @return true se è morto, altrimenti false
      */
     boolean isMorto();
+
+    int scegliAttacco();
 }
