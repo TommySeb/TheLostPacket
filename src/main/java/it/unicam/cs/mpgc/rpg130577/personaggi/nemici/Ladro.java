@@ -21,7 +21,7 @@ public class Ladro extends Personaggio {
     }
 
     public void usaAbilitaSpeciale(Personaggio avversario) {
-        // TODO: annulla l'abilità speciale del nemico
+        avversario.inizializzaNumeroAttacchi();
     }
 
     public List<Attacchi> ottieniAttacchiDisponibili(){
