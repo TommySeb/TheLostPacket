@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi.alleati;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 
@@ -20,9 +21,8 @@ public class Masterizzatore extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    @Override
-    public void usaAbilitaSpeciale(Personaggio avversario) {
-        // TODO: far saltare il turno all'avversario
+    public void usaAbilitaSpeciale(Partita partita) {
+        partita.setSaltaTurno(true);
     }
 
     public List<Attacchi> ottieniAttacchiDisponibili(){

@@ -20,7 +20,6 @@ public class Sistemista extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    @Override
     public void usaAbilitaSpeciale(Personaggio avversario){
         avversario.subisciAttacco(50);
         inizializzaNumeroAttacchi();

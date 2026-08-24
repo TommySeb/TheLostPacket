@@ -14,6 +14,7 @@ public class Partita {
     List<Livello> livelli;
     int livelloAttuale;
     boolean turnoAlleato;
+    boolean saltaTurno;
     boolean vincita;
 
     /**
@@ -112,6 +113,21 @@ public class Partita {
             return getLivelloAttuale().getAvversario();
         else
             return getAlleato();
+    }
+
+    /**
+     * Imposta se il personaggio non di turno dovrà saltare il turno o meno
+     */
+    public void setSaltaTurno(boolean valore){
+        saltaTurno = valore;
+    }
+
+    /**
+     * Indica se il personaggio non di turno dovrà saltare il turno o meno
+     * @return
+     */
+    public boolean getSaltaTurno(){
+        return saltaTurno;
     }
 
     /**

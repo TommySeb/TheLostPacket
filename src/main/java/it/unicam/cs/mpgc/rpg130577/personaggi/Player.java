@@ -15,12 +15,6 @@ public interface Player {
     void attacca(Personaggio avversario);
 
     /**
-     * Utilizza, se possibile, la sua abilità speciale verso un personaggio specificato
-     * @param avversario Personaggio da attaccare
-     */
-    void usaAbilitaSpeciale(Personaggio avversario);
-
-    /**
      * Diminuisce la vita del personaggio di un punteggio specificato
      * @param hp "Health Points" da diminuire
      */

@@ -20,7 +20,6 @@ public class GroviglioCavi extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    @Override
     public void usaAbilitaSpeciale(Personaggio avversario) {
         avversario.subisciAttacco(30);
         inizializzaNumeroAttacchi();

@@ -19,11 +19,6 @@ public class Nefario extends Personaggio {
         attacchiPerAbilitaSpeciale = -1;
     }
 
-    @Override
-    public void usaAbilitaSpeciale(Personaggio avversario) {
-
-    }
-
     public List<Attacchi> ottieniAttacchiDisponibili(){
         List<Attacchi> attacchiDisponibili = new ArrayList<>();
 

@@ -19,7 +19,7 @@
 
     <Label fx:id="labelEsito" textAlignment="CENTER"/>
 
-    <Label fx:id="ringraziamenti" text="Grazie per aver giocato a The Lost Packet!"/>
+    <Label text="Grazie per aver giocato a The Lost Packet!"/>
 
     <Button onAction="#giocaDiNuovo">
         <graphic>

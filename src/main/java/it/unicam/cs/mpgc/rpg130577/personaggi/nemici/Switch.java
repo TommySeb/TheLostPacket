@@ -28,11 +28,6 @@ public class Switch extends Personaggio {
             avversario.subisciAttacco(20);
     }
 
-    @Override
-    public void usaAbilitaSpeciale(Personaggio avversario) {
-
-    }
-
     public List<Attacchi> ottieniAttacchiDisponibili(){
         List<Attacchi> attacchiDisponibili = new ArrayList<>();
 

@@ -19,7 +19,6 @@ public class Sniffer extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    @Override
     public void usaAbilitaSpeciale(Personaggio avversario) {
         recuperaPuntiVita(20);
         inizializzaNumeroAttacchi();

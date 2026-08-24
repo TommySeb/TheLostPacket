@@ -20,7 +20,6 @@ public class Ladro extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    @Override
     public void usaAbilitaSpeciale(Personaggio avversario) {
         // TODO: annulla l'abilità speciale del nemico
     }
