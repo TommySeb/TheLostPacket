@@ -57,29 +57,36 @@ public class GiocoController{
             if (newScene != null) {
                 newScene.setOnKeyPressed(event -> {
                     KeyCode key = event.getCode();
-
-                    if (key.isDigitKey()) {
-                        int numero = key.getName().charAt(0) - '0';
-                        combattimento.eseguiAttacco(numero);
-
-                        aggiornaHpAlleato( getAlleato() );
-                        aggiornaHpAvversario( getAvversario() );
-
-                        if(partita.combattimentoTerminato())
-                            try{
-                                EsitoController controller = GestoreFinestre.apriDaFXML("/fxml/esito.fxml", "Esito", false);
-                                controller.setLabelEsito( partita.getEsito() );
-                            }
-                            catch(Exception ex){
-                                // TODO gestire
-                            }
-                        else if(partita.livelloTerminato())
-                            caricaLivello();
-                        caricaAttacchi();
-                    }
+                    gestisciTastoPremuto(key);
                 });
             }
         });
+    }
+
+    /**
+     * TODO REVISIONARE
+     * @param key
+     */
+    private void gestisciTastoPremuto(KeyCode key){
+        if (key.isDigitKey()) {
+            int numero = key.getName().charAt(0) - '0';
+            combattimento.eseguiAttacco(numero);
+
+            aggiornaHpAlleato( getAlleato() );
+            aggiornaHpAvversario( getAvversario() );
+
+            if(partita.combattimentoTerminato())
+                try{
+                    EsitoController controller = GestoreFinestre.apriDaFXML("/fxml/esito.fxml", "Esito", false);
+                    controller.setLabelEsito( partita.getEsito() );
+                }
+                catch(Exception ex){
+                    // TODO gestire
+                }
+            else if(partita.livelloTerminato())
+                caricaLivello();
+            caricaAttacchi();
+        }
     }
 
     /**
