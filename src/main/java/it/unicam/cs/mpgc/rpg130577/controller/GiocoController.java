@@ -22,7 +22,6 @@ import java.util.List;
  */
 public class GiocoController{
     Partita partita;
-    GestoreCombattimento combattimento;
 
     @FXML
     private BorderPane layout;
@@ -70,10 +69,10 @@ public class GiocoController{
     private void gestisciTastoPremuto(KeyCode key){
         if (key.isDigitKey()) {
             int numero = key.getName().charAt(0) - '0';
-            combattimento.eseguiAttacco(numero);
+            partita.getCombattimento().eseguiAttacco(numero);
 
-            aggiornaHpAlleato( getAlleato() );
-            aggiornaHpAvversario( getAvversario() );
+            aggiornaHpAlleato();
+            aggiornaHpAvversario();
 
             if(partita.combattimentoTerminato())
                 try{
@@ -95,47 +94,59 @@ public class GiocoController{
      */
     public void inizializzaPartita(Personaggio alleato){
         partita = new Partita(alleato);
-        combattimento = new GestoreCombattimento(partita);
+        partita.setCombattimento(new GestoreCombattimento(partita));
 
-        caricaPersonaggioAlleato(alleato);
+        caricaPersonaggioAlleato();
         caricaLivello();
         caricaAttacchi();
     }
 
     /**
      * Carica le informaazioni sul personaggio alleato nella GUI
-     * @param alleato Alleato da caricare
      */
-    private void caricaPersonaggioAlleato(Personaggio alleato){
-        aggiornaHpAlleato(alleato);
-
-        Image sfondoAlleato = LoaderImmagini.carica(alleato.getPercorsoImmagine());
-        setImmaginePersonaggioAlleato(sfondoAlleato);
+    private void caricaPersonaggioAlleato(){
+        aggiornaHpAlleato();
+        caricaImmagineAlleato();
     }
 
-    private void aggiornaHpAlleato(Personaggio alleato){
+    private void aggiornaHpAlleato(){
+        Personaggio alleato = getAlleato();
+
         setHpAttualiPersonaggioAlleato(alleato.getHpAttuali());
         setHpMassimiPersonaggioAlleato(alleato.getHpMassimi());
     }
 
+    private void caricaImmagineAlleato(){
+        Personaggio alleato = getAlleato();
+
+        Image immagineAlleato = LoaderImmagini.carica(alleato.getPercorsoImmagine());
+        setImmaginePersonaggioAlleato(immagineAlleato);
+    }
+
     /**
      * Carica le informazioni sul personaggio avversario nella GUI
-     * @param avversario Avversario da caricare
      */
-    public void caricaPersonaggioAvversario(Personaggio avversario){
-        aggiornaHpAvversario(avversario);
+    public void caricaPersonaggioAvversario(){
+        aggiornaHpAvversario();
+        caricaImmagineAvversario();
+    }
+
+    private void aggiornaHpAvversario(){
+        Personaggio avversario = getAvversario();
+
+        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
+        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
+    }
+
+    private void caricaImmagineAvversario(){
+        Personaggio avversario = getAvversario();
 
         Image sfondoAvversario = LoaderImmagini.carica(avversario.getPercorsoImmagine());
         setImmaginePersonaggioAvversario(sfondoAvversario);
     }
 
-    private void aggiornaHpAvversario(Personaggio avversario){
-        setHpAttualiPersonaggioAvversario(avversario.getHpAttuali());
-        setHpMassimiPersonaggioAvversario(avversario.getHpMassimi());
-    }
-
     /**
-     * Carica nella GUI gli attacchi del personaggio di turno
+     * Carica nella GUI gli attacchi del personaggio alleato, se di turno
      */
     private void caricaAttacchi(){
         if(partita.isTurnoAlleato()){
@@ -143,8 +154,9 @@ public class GiocoController{
             caricaAttacchiPersonaggioAlleato();
         }
         else{
-            resetAttacchiPersonaggioAlleato();
-            caricaAttacchiPersonaggioAvversario();
+            partita.effettuaTurno();
+            // TODO spostami
+            aggiornaHpAlleato();
         }
     }
 
@@ -152,18 +164,9 @@ public class GiocoController{
      * Carica nella GUI gli attacchi che possono essere compiuti dal personaggio alleato
      */
     private void caricaAttacchiPersonaggioAlleato(){
-        List<Attacchi> attacchiDisponibili = partita.getAlleato().ottieniAttacchiDisponibili();
+        List<Attacchi> attacchiDisponibili = getAlleato().ottieniAttacchiDisponibili();
         String testo = formattaAttacchi(attacchiDisponibili);
         setAttacchiDisponibiliAlleato(testo);
-    }
-
-    /**
-     * Carica nella GUI gli attacchi che possono essere compiuti dal personaggio avversario
-     */
-    private void caricaAttacchiPersonaggioAvversario(){
-        List<Attacchi> attacchiDisponibili = partita.getLivelloAttuale().getAvversario().ottieniAttacchiDisponibili();
-        String testo = formattaAttacchi(attacchiDisponibili);
-        setAttacchiDisponibiliAvversario(testo);
     }
 
     /**
@@ -197,7 +200,7 @@ public class GiocoController{
         RiproduttoreMusicale.riproduci(sottofondo);
 
         Personaggio avversario = livelloAttuale.getAvversario();
-        caricaPersonaggioAvversario(avversario);
+        caricaPersonaggioAvversario();
     }
 
     private Personaggio getAlleato(){

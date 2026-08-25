@@ -1,7 +1,9 @@
 package it.unicam.cs.mpgc.rpg130577.componenti;
 
+import it.unicam.cs.mpgc.rpg130577.giocatori.GiocatoreBot;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreLivelli;
+import it.unicam.cs.mpgc.rpg130577.utili.GestoreCombattimento;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,9 @@ public class Partita {
     boolean turnoAlleato;
     boolean saltaTurno;
     boolean vincita;
+    GestoreCombattimento combattimento;
+
+    GiocatoreBot giocatoreBot;
 
     /**
      * Costruttore
@@ -32,6 +37,8 @@ public class Partita {
         livelloAttuale = 0;
 
         turnoAlleato = true;
+
+        giocatoreBot = new GiocatoreBot(getLivelloAttuale().getAvversario());
     }
 
     /**
@@ -176,5 +183,22 @@ public class Partita {
      */
     public boolean livelliFiniti(){
         return livelloAttuale >= livelli.size() - 1;
+    }
+
+    public GestoreCombattimento getCombattimento() {
+        return combattimento;
+    }
+
+    public void setCombattimento(GestoreCombattimento combattimento) {
+        this.combattimento = combattimento;
+    }
+
+    /**
+     * Chiede al giocatore di turno che attacco desidera effettuare e lo effettua
+     */
+    public void effettuaTurno(){
+        // TODO gestire anche combattimento alleato
+        int attaccoScelto = giocatoreBot.scegliAttacco();
+        combattimento.eseguiAttacco(attaccoScelto);
     }
 }

@@ -68,13 +68,4 @@ public abstract class Personaggio implements Player {
     public boolean isMorto(){
         return hpAttuali <= 0;
     }
-
-    /**
-     * Sceglie un attacco a caso tra quelli disponbiili
-     * @return numero dell'attacco scelto
-     */
-    public int scegliAttacco(){
-        int numeroAttacchi = ottieniAttacchiDisponibili().size();
-        return GeneratoreCasuale.generaNumero(numeroAttacchi - 1);
-    }
 }
