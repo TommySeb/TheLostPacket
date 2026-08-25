@@ -194,10 +194,18 @@ public class Partita {
     }
 
     /**
-     * Chiede al giocatore di turno che attacco desidera effettuare e lo effettua
+     * Effettua un turno del gioco, eseguendo prima l'azione dell'alleato poi quella dell'avversario
+     * @param numeroAttaccoAlleato Numero di attacco scelto da parte dell'alleato
      */
-    public void effettuaTurno(){
-        // TODO gestire anche combattimento alleato
+    public void effettuaTurno(int numeroAttaccoAlleato){
+        // Effettua il combattimento richiesto dall'alleato
+        combattimento.eseguiAttacco(numeroAttaccoAlleato);
+
+        // Controllo eventuali sconfitte
+        if (combattimentoTerminato())
+            return;
+
+        // Effettua il combattimento richiesto dall'avversario
         int attaccoScelto = giocatoreBot.scegliAttacco();
         combattimento.eseguiAttacco(attaccoScelto);
     }

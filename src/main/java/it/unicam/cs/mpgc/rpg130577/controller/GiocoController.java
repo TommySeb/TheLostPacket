@@ -63,28 +63,25 @@ public class GiocoController{
     }
 
     /**
-     * TODO REVISIONARE
-     * @param key
+     * Gestisce l'evento quando si preme un tasto della tastiera, decidendo che azione intraprendere
+     * @param key Tasto della tastiera
      */
     private void gestisciTastoPremuto(KeyCode key){
         if (key.isDigitKey()) {
             int numero = key.getName().charAt(0) - '0';
-            partita.getCombattimento().eseguiAttacco(numero);
+            partita.effettuaTurno(numero);
 
             aggiornaHpAlleato();
             aggiornaHpAvversario();
 
-            if(partita.combattimentoTerminato())
-                try{
-                    EsitoController controller = GestoreFinestre.apriDaFXML("/fxml/esito.fxml", "Esito", false);
-                    controller.setLabelEsito( partita.getEsito() );
-                }
-                catch(Exception ex){
-                    // TODO gestire
-                }
-            else if(partita.livelloTerminato())
+            if(partita.combattimentoTerminato()){
+                EsitoController controller = GestoreFinestre.apriDaFXML("/fxml/esito.fxml", "Esito", false);
+                controller.setLabelEsito( partita.getEsito() );
+            }
+            else if(partita.livelloTerminato()){
                 caricaLivello();
-            caricaAttacchi();
+                caricaAttacchi();
+            }
         }
     }
 
@@ -152,11 +149,6 @@ public class GiocoController{
         if(partita.isTurnoAlleato()){
             resetAttacchiPersonaggioAvversario();
             caricaAttacchiPersonaggioAlleato();
-        }
-        else{
-            partita.effettuaTurno();
-            // TODO spostami
-            aggiornaHpAlleato();
         }
     }
 

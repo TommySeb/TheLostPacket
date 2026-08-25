@@ -38,12 +38,7 @@ public class SceltaPersonaggioController {
      * @param alleato Alleato da impostare
      */
     private void apriGiocoConAlleato(Personaggio alleato){
-        try{
-            GiocoController controller = GestoreFinestre.apriDaFXML("/fxml/gioco.fxml", "Gioco", false);
-            controller.inizializzaPartita(alleato);
-        } catch (IOException e) {
-            // TODO gestire
-            throw new RuntimeException(e);
-        }
+        GiocoController controller = GestoreFinestre.apriDaFXML("/fxml/gioco.fxml", "Gioco", false);
+        controller.inizializzaPartita(alleato);
     }
 }
