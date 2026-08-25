@@ -21,7 +21,8 @@ public class Masterizzatore extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    public void usaAbilitaSpeciale(Partita partita) {
+    @Override
+    public void usaAbilitaSpeciale(Partita partita, Personaggio avversario) {
         partita.setSaltaTurno(true);
     }
 

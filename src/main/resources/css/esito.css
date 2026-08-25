@@ -4,6 +4,7 @@ VBox{
 
 .label{
     -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 #labelEsito{

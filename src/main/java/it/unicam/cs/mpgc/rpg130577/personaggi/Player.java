@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 
 import java.util.List;
@@ -31,6 +32,13 @@ public interface Player {
     void inizializzaNumeroAttacchi();
 
     /**
+     * Utilizza l'abilità speciale di un personaggio
+     * @param partita Partita nella quale viene usata l'abilità speciale
+     * @param avversario Avversario verso il quale viene applicata l'abilità speciale
+     */
+    void usaAbilitaSpeciale(Partita partita, Personaggio avversario);
+
+    /**
      * Trova e restituisce la lista di attacchi che il personaggio può compiere
      */
     List<Attacchi> ottieniAttacchiDisponibili();
@@ -40,6 +48,4 @@ public interface Player {
      * @return true se è morto, altrimenti false
      */
     boolean isMorto();
-
-    int scegliAttacco();
 }

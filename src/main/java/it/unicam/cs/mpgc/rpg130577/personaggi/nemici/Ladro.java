@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi.nemici;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 
@@ -20,7 +21,8 @@ public class Ladro extends Personaggio {
         inizializzaNumeroAttacchi();
     }
 
-    public void usaAbilitaSpeciale(Personaggio avversario) {
+    @Override
+    public void usaAbilitaSpeciale(Partita partita, Personaggio avversario) {
         avversario.inizializzaNumeroAttacchi();
     }
 

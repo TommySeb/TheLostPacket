@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi.nemici;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 
@@ -17,6 +18,11 @@ public class Nefario extends Personaggio {
         this.puntiAttacco = 15;
         this.pathImmagine = "personaggi/nemici/nefario.png";
         attacchiPerAbilitaSpeciale = -1;
+    }
+
+    @Override
+    public void usaAbilitaSpeciale(Partita partita, Personaggio avversario) {
+
     }
 
     public List<Attacchi> ottieniAttacchiDisponibili(){

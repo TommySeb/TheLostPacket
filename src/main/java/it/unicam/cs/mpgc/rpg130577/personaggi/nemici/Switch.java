@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi.nemici;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreCasuale;
@@ -26,6 +27,11 @@ public class Switch extends Personaggio {
             avversario.subisciAttacco(25);
         else
             avversario.subisciAttacco(20);
+    }
+
+    @Override
+    public void usaAbilitaSpeciale(Partita partita, Personaggio avversario) {
+
     }
 
     public List<Attacchi> ottieniAttacchiDisponibili(){
