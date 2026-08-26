@@ -1,13 +1,26 @@
 BorderPane {
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 550px;
     -fx-background-size: cover;
     -fx-background-position: center;
 }
 
 VBox {
     -fx-background-color: #00008B;
+    -fx-alignment: BOTTOM_CENTER;
+}
+
+ImageView{
+    -fx-fit-width: 150px;
+    -fx-fit-height: 150px;
 }
 
 .label {
     -fx-text-fill: white;
     -fx-font-size: 20px;
+    -fx-wrap-text: true;
+}
+
+Separator{
+    -fx-pref-width: 100px;
 }

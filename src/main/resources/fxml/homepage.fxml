@@ -8,34 +8,24 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="it.unicam.cs.mpgc.rpg130577.controller.HomepageController"
-            prefWidth="1000.0"
-            prefHeight="550.0"
-            style="-fx-background-color: black;">
+            stylesheets="@../css/homepage.css">
     <top>
-        <ImageView
-                fitWidth="512"
-                fitHeight="341"
-                preserveRatio="true"
-                BorderPane.alignment="CENTER">
+        <ImageView fx:id="logo">
             <Image url="@/logo/logo.png"/>
         </ImageView>
     </top>
     <bottom>
-        <FlowPane alignment="CENTER" orientation="VERTICAL">
-            <Button
-                    onAction="#apriSceltaPersonaggio"
-                    style="-fx-background-color: black;">>
+        <FlowPane fx:id="menu">
+            <Button onAction="#apriSceltaPersonaggio">
                 <graphic>
-                    <ImageView fitWidth="228" fitHeight="60">
+                    <ImageView styleClass="sfondiPulsanti">
                         <Image url="@/sfondiPulsanti/gioca.png"/>
                     </ImageView>
                 </graphic>
             </Button>
-            <Button
-                    onAction="#apriCredits"
-                    style="-fx-background-color: black;">
+            <Button onAction="#apriCredits">
                 <graphic>
-                    <ImageView fitWidth="228" fitHeight="60">
+                    <ImageView styleClass="sfondiPulsanti">
                         <Image url="@/sfondiPulsanti/credits.png"/>
                     </ImageView>
                 </graphic>

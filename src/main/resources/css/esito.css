@@ -1,4 +1,8 @@
 VBox{
+    -fx-pref-width: 600px;
+    -fx-pref-height: 400px;
+    -fx-alignment: CENTER;
+    -fx-spacing: 10px;
     -fx-background-image: url('/sfondi/credits.png');
 }
 
@@ -21,4 +25,13 @@ VBox{
 
 #ringraziamenti{
     -fx-font-size: 20px;
+}
+
+Button{
+    -fx-background-color: transparent;
+}
+
+ImageView{
+    -fx-fit-width: 228px;
+    -fx-fit-height: 60px;
 }

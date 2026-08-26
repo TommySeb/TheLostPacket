@@ -3,25 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns="http://javafx.com/javafx"
-      prefWidth="600.0"
-      prefHeight="400.0"
-      alignment="CENTER"
-      spacing="10.0"
-      style="-fx-background-image: url('/sfondi/credits.png');
-                   -fx-background-size: cover;
-                   -fx-background-position: center;">
+      xmlns:fx="http://javafx.com/fxml"
+      stylesheets="@/css/credits.css">
 
-    <Label text="The Lost Packet"
-           style="-fx-font-size: 30px;
-                  -fx-font-weight: bold;
-                  -fx-text-fill: white"/>
+    <Label fx:id="titolo" text="The Lost Packet"/>
 
-    <Label text="Progetto di metodologie di programmazione di Sebastianelli Tomas."
-           style="-fx-text-fill: white"/>
-    <Label text="Matricola 130577"
-           style="-fx-text-fill: white"/>
-    <Label text="A.A. 2025/2026"
-           style="-fx-text-fill: white"/>
-    <Label text="Secondo anno informatica"
-           style="-fx-text-fill: white"/>
+    <Label text="Progetto di metodologie di programmazione di Sebastianelli Tomas."/>
+    <Label text="Matricola 130577"/>
+    <Label text="A.A. 2025/2026"/>
+    <Label text="Secondo anno informatica"/>
 </VBox>

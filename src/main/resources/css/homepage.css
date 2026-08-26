@@ -1,0 +1,26 @@
+BorderPane{
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 550px;
+    -fx-background-color: black;
+}
+
+#logo{
+    -fx-fit-width: 512px;
+    -fx-fit-height: 341px;
+    -fx-preserve-ratio: true;
+    -fx-alignment: CENTER;
+}
+
+Button{
+    -fx-background-color: transparent;
+}
+
+#menu{
+    -fx-alignment: center;
+    -fx-orientation: vertical;
+}
+
+.sfondiPulsanti{
+    -fx-fit-width: 228px;
+    -fx-fit-height: 60px;
+}

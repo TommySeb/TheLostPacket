@@ -1,0 +1,18 @@
+VBox{
+    -fx-background-image: url('/sfondi/credits.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-pref-width: 600px;
+    -fx-pref-height: 400px;
+    -fx-alignment: CENTER;
+    -fx-spacing: 10px;
+}
+
+Label{
+    -fx-text-fill: white;
+}
+
+#titolo{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}

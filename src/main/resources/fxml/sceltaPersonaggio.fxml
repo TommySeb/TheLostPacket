@@ -7,66 +7,52 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="it.unicam.cs.mpgc.rpg130577.controller.SceltaPersonaggioController"
-            prefWidth="600.0"
-            prefHeight="400.0"
-            style="-fx-background-color: black;">
+            stylesheets="@/css/sceltaPersonaggio.css">
 
     <padding>
         <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
     </padding>
 
     <top>
-        <Label  text="Scegli il tuo personaggio"
-                style=" -fx-font-size: 30px;
-                        -fx-font-weight: bold;
-                        -fx-text-fill: white"/>
+        <Label fx:id="titolo" text="Scegli il tuo personaggio"/>
     </top>
     
     <center>
         <HBox>
             <VBox alignment="TOP_CENTER">
-                <Button onAction="#scegliMasterizzatore"
-                        style="-fx-background-color: black;">
+                <Button onAction="#scegliMasterizzatore">
                     <graphic>
-                        <ImageView fitWidth="400" fitHeight="400">
+                        <ImageView>
                             <Image url="@/personaggi/alleati/masterizzatore.png"/>
                         </ImageView>
                     </graphic>
                 </Button>
 
-                <Label text="Masterizzatore di CD/DVD"
-                        style=" -fx-font-size: 20px;
-                                -fx-text-fill: white"/>
+                <Label text="Masterizzatore di CD/DVD"/>
             </VBox>
 
             <VBox alignment="TOP_CENTER">
-                <Button onAction="#scegliSistemista"
-                        style="-fx-background-color: black;">
+                <Button onAction="#scegliSistemista">
                     <graphic>
-                        <ImageView fitWidth="400" fitHeight="400">
+                        <ImageView>
                             <Image url="@/personaggi/alleati/sistemistaRete.png"/>
                         </ImageView>
                     </graphic>
                 </Button>
 
-                <Label text="Sistemista di rete"
-                        style=" -fx-font-size: 20px;
-                                -fx-text-fill: white"/>
+                <Label text="Sistemista di rete"/>
             </VBox>
 
             <VBox alignment="TOP_CENTER">
-                <Button onAction="#scegliSniffer"
-                        style="-fx-background-color: black;">
+                <Button onAction="#scegliSniffer">
                     <graphic>
-                        <ImageView fitWidth="400" fitHeight="400">
+                        <ImageView>
                             <Image url="@/personaggi/alleati/snifferRete.png"/>
                         </ImageView>
                     </graphic>
                 </Button>
 
-                <Label text="Sniffer di rete"
-                       style=" -fx-font-size: 20px;
-                                -fx-text-fill: white"/>
+                <Label text="Sniffer di rete"/>
             </VBox>
         </HBox>
     </center>

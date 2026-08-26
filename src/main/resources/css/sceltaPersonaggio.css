@@ -1,0 +1,27 @@
+BorderPane{
+    -fx-background-color: black;
+    -fx-pref-width: 600px;
+    -fx-pref-height: 400px;
+}
+
+Label{
+    -fx-text-fill: white;
+}
+
+#titolo{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+Button{
+    -fx-background-color: transparent;
+}
+
+ImageView{
+    -fx-fit-width: 400px;
+    -fx-fit-height: 400px;
+}
+
+HBox VBox Label{
+    -fx-font-size: 20px;
+}

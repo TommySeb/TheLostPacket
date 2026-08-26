@@ -5,22 +5,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:id="layout"
             fx:controller="it.unicam.cs.mpgc.rpg130577.controller.GiocoController"
-            prefWidth="1000.0"
-            prefHeight="550.0"
             stylesheets="@../css/gioco.css">
 
     <left>
-        <VBox prefWidth="150.0"
-              alignment="BOTTOM_CENTER">
-            <ImageView fitWidth="150"
-                       fitHeight="150"
-                       fx:id="immagineAlleato">
-
-            </ImageView>
+        <VBox prefWidth="150.0">
+            <ImageView fx:id="immagineAlleato"/>
 
             <HBox>
                 <Label fx:id="hpAttualiAlleato"/>
@@ -29,23 +23,16 @@
                 <Label text=" HP"/>
             </HBox>
 
-            <Separator prefWidth="100.0"/>
+            <Separator/>
 
-            <Label fx:id="attacchiDisponibiliAlleato"
-                   wrapText="true">
-
-            </Label>
+            <Label fx:id="attacchiDisponibiliAlleato"/>
         </VBox>
 
     </left>
 
     <right>
-        <VBox prefWidth="150.0"
-              alignment="BOTTOM_CENTER">
-            <ImageView fitWidth="150"
-                       fitHeight="150"
-                       fx:id="immagineAvversario">
-            </ImageView>
+        <VBox>
+            <ImageView fx:id="immagineAvversario"/>
 
             <HBox>
                 <Label fx:id="hpAttualiAvversario"/>
@@ -54,12 +41,9 @@
                 <Label text=" HP"/>
             </HBox>
 
-            <Separator prefWidth="100.0"/>
+            <Separator/>
 
-            <Label fx:id="attacchiDisponibiliAvversario"
-                   wrapText="true">
-
-            </Label>
+            <Label fx:id="attacchiDisponibiliAvversario"/>
         </VBox>
     </right>
 
