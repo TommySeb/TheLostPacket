@@ -6,20 +6,21 @@ import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import java.util.List;
 
 public class GestoreCombattimento {
-    Partita partita;
+    /**
+     * Costruttore
+     */
+    public GestoreCombattimento() {
 
-    public GestoreCombattimento(Partita partita) {
-        this.partita = partita;
     }
 
     /**
      * Esegue un attacco verso un personaggio specificato
-     * @param numero Indice dell'attacco da effettuare per il personaggio di turno tra quelli disponibili
+     * @param attaccante Personaggio attaccante
+     * @param numero Numero di attacco scelto dal personaggio attaccante
+     * @param avversario Personaggio avversario
      */
-    public void eseguiAttacco(int numero){
-        Personaggio attaccante = partita.getPersonaggioDiTurno();
+    public void eseguiAttacco(Personaggio attaccante, int numero, Personaggio avversario){
         List<Attacchi> attacchiDisponibiliAttaccante = attaccante.ottieniAttacchiDisponibili();
-        Personaggio avversario = partita.getPersonaggioNonDiTurno();
 
         if(numero >= 0 && numero < attacchiDisponibiliAttaccante.size()){
             Attacchi attaccoScelto = attacchiDisponibiliAttaccante.get(numero);
@@ -30,14 +31,9 @@ public class GestoreCombattimento {
                     break;
 
                 case Attacchi.ABILITA_SPECIALE:
-                    attaccante.usaAbilitaSpeciale(partita, avversario);
+                    attaccante.usaAbilitaSpeciale(avversario);
                     break;
             }
         }
-
-        if(partita.getSaltaTurno())
-            partita.getGestoreTurni().setSaltaTurno(false);
-        else
-            partita.getGestoreTurni().cambiaTurno();
     }
 }

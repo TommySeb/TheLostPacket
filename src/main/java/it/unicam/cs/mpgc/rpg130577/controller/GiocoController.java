@@ -57,7 +57,6 @@ public class GiocoController{
      */
     public void inizializzaPartita(Personaggio alleato){
         partita = new Partita(alleato);
-        partita.setCombattimento(new GestoreCombattimento(partita));
 
         caricaPersonaggioAlleato();
         caricaLivello();

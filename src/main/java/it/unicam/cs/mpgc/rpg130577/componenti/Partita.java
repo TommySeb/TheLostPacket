@@ -15,7 +15,6 @@ public class Partita {
     List<Livello> livelli;
     int livelloAttuale;
     boolean vincita;
-    GestoreCombattimento combattimento;
 
     GiocatoreBot giocatoreBot;
     GestoreTurno turno;
@@ -105,14 +104,6 @@ public class Partita {
     }
 
     /**
-     * Indica se il personaggio non di turno dovrà saltare il turno o meno
-     * @return true se il personaggio non di turno dovrà saltare il turno, altrimenti false
-     */
-    public boolean getSaltaTurno(){
-        return getGestoreTurni().getSaltaTurno();
-    }
-
-    /**
      * Indica se la partita è stata vinta o meno
      * @return true se l'alleato ha vinto, altrimenti false
      */
@@ -153,10 +144,6 @@ public class Partita {
      */
     public boolean livelliFiniti(){
         return livelloAttuale >= livelli.size() - 1;
-    }
-
-    public void setCombattimento(GestoreCombattimento combattimento) {
-        this.combattimento = combattimento;
     }
 
     /**

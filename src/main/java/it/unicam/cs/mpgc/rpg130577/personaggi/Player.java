@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi;
 
+import it.unicam.cs.mpgc.rpg130577.componenti.GestoreTurno;
 import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 
@@ -33,10 +34,9 @@ public interface Player {
 
     /**
      * Utilizza l'abilità speciale di un personaggio
-     * @param partita Partita nella quale viene usata l'abilità speciale
      * @param avversario Avversario verso il quale viene applicata l'abilità speciale
      */
-    void usaAbilitaSpeciale(Partita partita, Personaggio avversario);
+    void usaAbilitaSpeciale(Personaggio avversario);
 
     /**
      * Trova e restituisce la lista di attacchi che il personaggio può compiere
