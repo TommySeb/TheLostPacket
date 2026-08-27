@@ -13,7 +13,7 @@ import java.util.List;
 public class Masterizzatore extends Personaggio {
     public Masterizzatore() {
         super();
-        this.hpMassimi = 100;
+        this.hpMassimi = 170;
         this.hpAttuali = this.hpMassimi;
         this.puntiAttacco = 25;
         this.pathImmagine = "personaggi/alleati/masterizzatore.png";

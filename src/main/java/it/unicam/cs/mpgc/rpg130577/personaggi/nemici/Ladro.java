@@ -13,9 +13,9 @@ import java.util.List;
 public class Ladro extends Personaggio {
     public Ladro() {
         super();
-        this.hpMassimi = 180;
+        this.hpMassimi = 100;
         this.hpAttuali = this.hpMassimi;
-        this.puntiAttacco = 30;
+        this.puntiAttacco = 20;
         this.pathImmagine = "personaggi/nemici/ladro.png";
         attacchiPerAbilitaSpeciale = 4;
         inizializzaNumeroAttacchi();

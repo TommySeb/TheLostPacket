@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Sniffer extends Personaggio {
     public Sniffer() {
-        hpMassimi = 100;
+        hpMassimi = 170;
         hpAttuali = hpMassimi;
         puntiAttacco = 25;
         pathImmagine = "personaggi/alleati/snifferRete.png";

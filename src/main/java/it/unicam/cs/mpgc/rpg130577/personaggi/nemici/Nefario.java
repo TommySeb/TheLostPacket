@@ -13,9 +13,9 @@ import java.util.List;
 public class Nefario extends Personaggio {
     public Nefario() {
         super();
-        this.hpMassimi = 50;
+        this.hpMassimi = 40;
         this.hpAttuali = this.hpMassimi;
-        this.puntiAttacco = 15;
+        this.puntiAttacco = 10;
         this.pathImmagine = "personaggi/nemici/nefario.png";
         attacchiPerAbilitaSpeciale = -1;
     }

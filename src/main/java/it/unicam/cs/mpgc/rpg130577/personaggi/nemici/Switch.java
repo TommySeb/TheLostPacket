@@ -14,9 +14,9 @@ import java.util.List;
 public class Switch extends Personaggio {
     public Switch() {
         super();
-        this.hpMassimi = 70;
+        this.hpMassimi = 50;
         this.hpAttuali = this.hpMassimi;
-        this.puntiAttacco = 20;
+        this.puntiAttacco = 14;
         this.pathImmagine = "personaggi/nemici/switchRete.png";
         attacchiPerAbilitaSpeciale = -1;
     }

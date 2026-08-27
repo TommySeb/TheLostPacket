@@ -13,9 +13,9 @@ import java.util.List;
 public class Sistemista extends Personaggio {
     public Sistemista() {
         super();
-        this.hpMassimi = 120;
+        this.hpMassimi = 200;
         this.hpAttuali = this.hpMassimi;
-        this.puntiAttacco = 20;
+        this.puntiAttacco = 22;
         this.pathImmagine = "personaggi/alleati/sistemistaRete.png";
         this.attacchiPerAbilitaSpeciale = 4;
         inizializzaNumeroAttacchi();

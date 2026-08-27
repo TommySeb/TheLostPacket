@@ -13,9 +13,9 @@ import java.util.List;
 public class GroviglioCavi extends Personaggio {
     public GroviglioCavi() {
         super();
-        this.hpMassimi = 100;
+        this.hpMassimi = 60;
         this.hpAttuali = this.hpMassimi;
-        this.puntiAttacco = 23;
+        this.puntiAttacco = 17;
         this.pathImmagine = "personaggi/nemici/groviglioCavi.png";
         attacchiPerAbilitaSpeciale = 4;
         inizializzaNumeroAttacchi();
