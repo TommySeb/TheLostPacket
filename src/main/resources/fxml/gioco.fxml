@@ -32,18 +32,18 @@
 
     <right>
         <VBox>
-            <ImageView fx:id="immagineAvversario"/>
+            <ImageView fx:id="immagineNemico"/>
 
             <HBox>
-                <Label fx:id="hpAttualiAvversario"/>
+                <Label fx:id="hpAttualiNemico"/>
                 <Label text=" HP / "/>
-                <Label fx:id="hpMassimiAvversario"/>
+                <Label fx:id="hpMassimiNemico"/>
                 <Label text=" HP"/>
             </HBox>
 
             <Separator/>
 
-            <Label fx:id="attacchiDisponibiliAvversario"/>
+            <Label fx:id="attacchiDisponibiliNemico"/>
         </VBox>
     </right>
 

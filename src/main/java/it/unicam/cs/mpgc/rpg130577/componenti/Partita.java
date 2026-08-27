@@ -3,7 +3,6 @@ package it.unicam.cs.mpgc.rpg130577.componenti;
 import it.unicam.cs.mpgc.rpg130577.giocatori.GiocatoreBot;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreLivelli;
-import it.unicam.cs.mpgc.rpg130577.utili.GestoreCombattimento;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +14,11 @@ public class Partita {
     Personaggio alleato;
     List<Livello> livelli;
     int livelloAttuale;
-    boolean turnoAlleato;
-    boolean saltaTurno;
     boolean vincita;
     GestoreCombattimento combattimento;
 
     GiocatoreBot giocatoreBot;
+    GestoreTurno turno;
 
     /**
      * Costruttore
@@ -36,9 +34,8 @@ public class Partita {
         addLivello(GeneratoreLivelli.generaLivello4());
         livelloAttuale = 0;
 
-        turnoAlleato = true;
-
         giocatoreBot = new GiocatoreBot(getLivelloAttuale().getNemico());
+        turno = new GestoreTurno(this, giocatoreBot);
     }
 
     /**
@@ -80,21 +77,6 @@ public class Partita {
     }
 
     /**
-     * Indica se è il turno del personaggio alleato o meno
-     * @return True se è il turno del personaggio alleato, altrimenti false
-     */
-    public boolean isTurnoAlleato(){
-        return turnoAlleato;
-    }
-
-    /**
-     * Passa il turno al personaggio opposto
-     */
-    public void cambiaTurno(){
-        turnoAlleato = !turnoAlleato;
-    }
-
-    /**
      * Restituisce il personaggio alleato che gioca la partita
      * @return Personaggio alleato che gioca la partita
      */
@@ -106,7 +88,7 @@ public class Partita {
      * Ritorna il personaggio di cui è il turno ora
      */
     public Personaggio getPersonaggioDiTurno(){
-        if(isTurnoAlleato())
+        if(getGestoreTurni().isTurnoAlleato())
             return getAlleato();
         else
             return getLivelloAttuale().getNemico();
@@ -116,25 +98,18 @@ public class Partita {
      * Ritorna il personaggio di cui non è il turno ora
      */
     public Personaggio getPersonaggioNonDiTurno(){
-        if(isTurnoAlleato())
+        if(getGestoreTurni().isTurnoAlleato())
             return getLivelloAttuale().getNemico();
         else
             return getAlleato();
     }
 
     /**
-     * Imposta se il personaggio non di turno dovrà saltare il turno o meno
-     */
-    public void setSaltaTurno(boolean valore){
-        saltaTurno = valore;
-    }
-
-    /**
      * Indica se il personaggio non di turno dovrà saltare il turno o meno
-     * @return
+     * @return true se il personaggio non di turno dovrà saltare il turno, altrimenti false
      */
     public boolean getSaltaTurno(){
-        return saltaTurno;
+        return getGestoreTurni().getSaltaTurno();
     }
 
     /**
@@ -165,16 +140,11 @@ public class Partita {
     }
 
     /**
-     * Restituisce il prossimo livello del gioco
-     * @return Prossimo livello del gioco o, se finiti, null
+     * Passa al prossimo livello del gioco
      */
-    public Livello prossimoLivello(){
-        if(!livelliFiniti()){
+    public void prossimoLivello(){
+        if(!livelliFiniti())
             livelloAttuale++;
-            return livelli.get(livelloAttuale);
-        }
-        else
-            return null;
     }
 
     /**
@@ -190,19 +160,10 @@ public class Partita {
     }
 
     /**
-     * Effettua un turno del gioco, eseguendo prima l'azione dell'alleato poi quella dell'avversario
-     * @param numeroAttaccoAlleato Numero di attacco scelto da parte dell'alleato
+     * Restituisce il gestore dei turni di questa partita
+     * @return Gestore dei turni di questa partita
      */
-    public void effettuaTurno(int numeroAttaccoAlleato){
-        // Effettua il combattimento richiesto dall'alleato
-        combattimento.eseguiAttacco(numeroAttaccoAlleato);
-
-        // Controllo eventuali sconfitte
-        if (combattimentoTerminato())
-            return;
-
-        // Effettua il combattimento richiesto dall'avversario
-        int attaccoScelto = giocatoreBot.scegliAttacco();
-        combattimento.eseguiAttacco(attaccoScelto);
+    public GestoreTurno getGestoreTurni(){
+        return turno;
     }
 }

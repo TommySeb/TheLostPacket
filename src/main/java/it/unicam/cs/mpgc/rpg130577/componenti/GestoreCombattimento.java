@@ -1,6 +1,5 @@
-package it.unicam.cs.mpgc.rpg130577.utili;
+package it.unicam.cs.mpgc.rpg130577.componenti;
 
-import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
 
@@ -37,8 +36,8 @@ public class GestoreCombattimento {
         }
 
         if(partita.getSaltaTurno())
-            partita.setSaltaTurno(false);
+            partita.getGestoreTurni().setSaltaTurno(false);
         else
-            partita.cambiaTurno();
+            partita.getGestoreTurni().cambiaTurno();
     }
 }

@@ -23,7 +23,7 @@ public class Masterizzatore extends Personaggio {
 
     @Override
     public void usaAbilitaSpeciale(Partita partita, Personaggio avversario) {
-        partita.setSaltaTurno(true);
+        partita.getGestoreTurni().setSaltaTurno(true);
     }
 
     public List<Attacchi> ottieniAttacchiDisponibili(){
