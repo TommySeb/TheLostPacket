@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe che contiene le informazioni (lo stato) di una partita
+ * Classe che si occupa della gestione della partita
  */
 public class Partita {
     Personaggio alleato;
@@ -38,7 +38,7 @@ public class Partita {
 
         turnoAlleato = true;
 
-        giocatoreBot = new GiocatoreBot(getLivelloAttuale().getAvversario());
+        giocatoreBot = new GiocatoreBot(getLivelloAttuale().getNemico());
     }
 
     /**
@@ -54,7 +54,7 @@ public class Partita {
      * @return true se il livello è terminato, altrimenti false
      */
     public boolean livelloTerminato(){
-        if(getLivelloAttuale().getAvversario().isMorto()){
+        if(getLivelloAttuale().getNemico().isMorto()){
             prossimoLivello();
             return true;
         }
@@ -71,7 +71,7 @@ public class Partita {
             vincita = false;
             return true;
         }
-        else if(getLivelloAttuale().getAvversario().isMorto() && livelliFiniti()){
+        else if(getLivelloAttuale().getNemico().isMorto() && livelliFiniti()){
             vincita = true;
             return true;
         }
@@ -109,7 +109,7 @@ public class Partita {
         if(isTurnoAlleato())
             return getAlleato();
         else
-            return getLivelloAttuale().getAvversario();
+            return getLivelloAttuale().getNemico();
     }
 
     /**
@@ -117,7 +117,7 @@ public class Partita {
      */
     public Personaggio getPersonaggioNonDiTurno(){
         if(isTurnoAlleato())
-            return getLivelloAttuale().getAvversario();
+            return getLivelloAttuale().getNemico();
         else
             return getAlleato();
     }
@@ -183,10 +183,6 @@ public class Partita {
      */
     public boolean livelliFiniti(){
         return livelloAttuale >= livelli.size() - 1;
-    }
-
-    public GestoreCombattimento getCombattimento() {
-        return combattimento;
     }
 
     public void setCombattimento(GestoreCombattimento combattimento) {

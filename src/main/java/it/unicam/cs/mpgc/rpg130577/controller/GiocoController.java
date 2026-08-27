@@ -78,10 +78,10 @@ public class GiocoController{
                 EsitoController controller = GestoreFinestre.apriDaFXML("/fxml/esito.fxml", "Esito", false);
                 controller.setLabelEsito( partita.getEsito() );
             }
-            else if(partita.livelloTerminato()){
+            else if(partita.livelloTerminato())
                 caricaLivello();
-                caricaAttacchi();
-            }
+
+            caricaAttacchi();
         }
     }
 
@@ -191,7 +191,7 @@ public class GiocoController{
         RiproduttoreMusicale.stop();
         RiproduttoreMusicale.riproduci(sottofondo);
 
-        Personaggio avversario = livelloAttuale.getAvversario();
+        Personaggio avversario = livelloAttuale.getNemico();
         caricaPersonaggioAvversario();
     }
 
@@ -200,7 +200,7 @@ public class GiocoController{
     }
 
     private Personaggio getAvversario(){
-        return partita.getLivelloAttuale().getAvversario();
+        return partita.getLivelloAttuale().getNemico();
     }
 
     /**

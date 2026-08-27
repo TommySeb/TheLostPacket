@@ -10,7 +10,7 @@
             fx:controller="it.unicam.cs.mpgc.rpg130577.controller.HomepageController"
             stylesheets="@../css/homepage.css">
     <top>
-        <ImageView fx:id="logo">
+        <ImageView fx:id="logo" BorderPane.alignment="CENTER">
             <Image url="@/logo/logo.png"/>
         </ImageView>
     </top>

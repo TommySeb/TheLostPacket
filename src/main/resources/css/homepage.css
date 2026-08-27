@@ -8,7 +8,6 @@ BorderPane{
     -fx-fit-width: 512px;
     -fx-fit-height: 341px;
     -fx-preserve-ratio: true;
-    -fx-alignment: CENTER;
 }
 
 Button{
