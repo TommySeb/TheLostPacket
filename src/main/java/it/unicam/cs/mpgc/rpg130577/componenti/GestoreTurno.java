@@ -42,23 +42,25 @@ public class GestoreTurno {
     }
 
     /**
-     * Effettua un turno del gioco, eseguendo prima l'azione dell'alleato poi quella dell'avversario
+     * Se l'attacco dell'alleato è valido, esegue un turno (ossia prima l'azione dell'alleato poi quella dell'avversario)
      * @param numeroAttaccoAlleato Numero di attacco scelto da parte dell'alleato
      */
     public void effettuaTurno(int numeroAttaccoAlleato){
         Personaggio alleato = partita.getAlleato();
-        Personaggio nemico = partita.getLivelloAttuale().nemico;
+        Personaggio nemico = partita.getLivelloAttuale().getNemico();
 
         // Effettua il combattimento richiesto dall'alleato
-        combattimento.eseguiAttacco(alleato, numeroAttaccoAlleato, nemico);
-        cambiaTurno();
+        boolean successo = combattimento.eseguiAttacco(alleato, numeroAttaccoAlleato, nemico);
+        if(successo){
+            cambiaTurno();
 
-        // Controllo eventuali sconfitte
-        if (partita.combattimentoTerminato())
-            return;
+            // Controllo eventuali sconfitte
+            if (partita.combattimentoTerminato())
+                return;
 
-        // Effettua il combattimento richiesto dall'avversario
-        int numeroAttaccoBot = giocatoreBot.scegliAttacco();
-        combattimento.eseguiAttacco(nemico, numeroAttaccoBot, alleato);
+            // Effettua il combattimento richiesto dall'avversario
+            int numeroAttaccoBot = giocatoreBot.scegliAttacco();
+            combattimento.eseguiAttacco(nemico, numeroAttaccoBot, alleato);
+        }
     }
 }

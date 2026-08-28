@@ -15,6 +15,12 @@ public class GestoreFinestre {
     private static Stage stageAttuale;
 
     /**
+     * Costruttore
+     */
+    private GestoreFinestre() {
+    }
+
+    /**
      * Apre una nuova finestra
      * @param percorso Percorso del file fxml
      * @param titolo Titolo della finestra

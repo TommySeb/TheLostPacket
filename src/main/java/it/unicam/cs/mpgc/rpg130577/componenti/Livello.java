@@ -7,8 +7,8 @@ import it.unicam.cs.mpgc.rpg130577.personaggi.Personaggio;
  * Classe che rappresenta un livello del gioco
  */
 public class Livello {
-    Personaggio nemico;
-    Ambienti ambiente;
+    private final Personaggio nemico;
+    private final Ambienti ambiente;
 
     /**
      * Costruttore

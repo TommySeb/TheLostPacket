@@ -3,8 +3,6 @@ package it.unicam.cs.mpgc.rpg130577.utili;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import java.net.URL;
-
 /**
  * Classe che si occupa della riproduzione di risorse audio
  */
@@ -16,6 +14,8 @@ public class RiproduttoreMusicale {
      * @param percorso Percorso della risorsa audio
      */
     public static void riproduci(String percorso){
+        stop();
+
         String url = RiproduttoreMusicale.class.getResource(percorso).toExternalForm();
 
         Media traccia = new Media(url);

@@ -1,10 +1,5 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi;
 
-import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
-import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreCasuale;
-
-import java.util.List;
-
 /**
  * Classe base per tutti i personaggi del gioco
  */

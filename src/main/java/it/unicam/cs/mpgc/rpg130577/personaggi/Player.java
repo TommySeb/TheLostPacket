@@ -1,7 +1,5 @@
 package it.unicam.cs.mpgc.rpg130577.personaggi;
 
-import it.unicam.cs.mpgc.rpg130577.componenti.GestoreTurno;
-import it.unicam.cs.mpgc.rpg130577.componenti.Partita;
 import it.unicam.cs.mpgc.rpg130577.enumerazione.Attacchi;
 
 import java.util.List;

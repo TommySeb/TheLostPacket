@@ -18,8 +18,9 @@ public class GestoreCombattimento {
      * @param attaccante Personaggio attaccante
      * @param numero Numero di attacco scelto dal personaggio attaccante
      * @param avversario Personaggio avversario
+     * @return True se l'attacco è valido, altrimenti false
      */
-    public void eseguiAttacco(Personaggio attaccante, int numero, Personaggio avversario){
+    public boolean eseguiAttacco(Personaggio attaccante, int numero, Personaggio avversario){
         List<Attacchi> attacchiDisponibiliAttaccante = attaccante.ottieniAttacchiDisponibili();
 
         if(numero >= 0 && numero < attacchiDisponibiliAttaccante.size()){
@@ -34,6 +35,10 @@ public class GestoreCombattimento {
                     attaccante.usaAbilitaSpeciale(avversario);
                     break;
             }
+
+            return true;
         }
+
+        return false;
     }
 }

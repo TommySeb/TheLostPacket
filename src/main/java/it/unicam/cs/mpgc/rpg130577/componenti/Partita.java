@@ -11,13 +11,13 @@ import java.util.List;
  * Classe che si occupa della gestione della partita
  */
 public class Partita {
-    Personaggio alleato;
-    List<Livello> livelli;
-    int livelloAttuale;
-    boolean vincita;
+    private final Personaggio alleato;
+    private final List<Livello> livelli;
+    private int livelloAttuale;
+    private boolean vincita;
 
-    GiocatoreBot giocatoreBot;
-    GestoreTurno turno;
+    private final GiocatoreBot giocatoreBot;
+    private final GestoreTurno turno;
 
     /**
      * Costruttore
@@ -38,20 +38,13 @@ public class Partita {
     }
 
     /**
-     * Indica se la partita è iniziata o meno
-     * @return true se è iniziata, altrimenti false
-     */
-    public boolean isIniziata(){
-        return livelloAttuale >= 0;
-    }
-
-    /**
      * Controlla se il livello è terminato e, in caso affermativo, passa al successivo
      * @return true se il livello è terminato, altrimenti false
      */
     public boolean livelloTerminato(){
         if(getLivelloAttuale().getNemico().isMorto()){
             prossimoLivello();
+            giocatoreBot.setPersonaggio(getLivelloAttuale().getNemico());
             return true;
         }
         else
@@ -84,26 +77,6 @@ public class Partita {
     }
 
     /**
-     * Ritorna il personaggio di cui è il turno ora
-     */
-    public Personaggio getPersonaggioDiTurno(){
-        if(getGestoreTurni().isTurnoAlleato())
-            return getAlleato();
-        else
-            return getLivelloAttuale().getNemico();
-    }
-
-    /**
-     * Ritorna il personaggio di cui non è il turno ora
-     */
-    public Personaggio getPersonaggioNonDiTurno(){
-        if(getGestoreTurni().isTurnoAlleato())
-            return getLivelloAttuale().getNemico();
-        else
-            return getAlleato();
-    }
-
-    /**
      * Indica se la partita è stata vinta o meno
      * @return true se l'alleato ha vinto, altrimenti false
      */
@@ -121,13 +94,10 @@ public class Partita {
 
     /**
      * Restituisce il livello attuale del gioco
-     * @return Livello attuale del gioco o, se la partita non è iniziata, null
+     * @return Livello attuale del gioco
      */
     public Livello getLivelloAttuale(){
-        if(isIniziata())
-            return livelli.get(livelloAttuale);
-        else
-            return null;
+        return livelli.get(livelloAttuale);
     }
 
     /**

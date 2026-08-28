@@ -7,7 +7,7 @@ import it.unicam.cs.mpgc.rpg130577.utili.GeneratoreCasuale;
  * Classe che rappresenta un giocatore non reale, ossia un bot
  */
 public class GiocatoreBot {
-    Personaggio personaggio;
+    private Personaggio personaggio;
 
     /**
      * Costruttore
